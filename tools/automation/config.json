@@ -1,0 +1,97 @@
+{
+  "scope": {
+    "host": "192.168.50.2",
+    "port": 5025,
+    "timeout_s": 5.0
+  },
+  "autonomous": {
+    "reset_settle_s": 0.5,
+    "transition_settle_s": 0.5
+  },
+  "hardware_mapping": {
+    "input": "IN1/J6/PB9/EEV5/TimerD",
+    "scope_c1": "OUT3/J4/PB14/TD1",
+    "scope_c2": "OUT4/J5/PB15/TD2",
+    "delay_sign": "positive = OUT4(C2) - OUT3(C1)"
+  },
+  "generator": {
+    "frequency_hz": 10.0,
+    "amplitude_vpp": 3.3,
+    "offset_v": 1.65,
+    "duty_percent": 50.0
+  },
+  "acquisition": {
+    "waveforms_per_step": 100,
+    "arm_settle_s": 0.5,
+    "time_scale_s_per_div": 2e-9,
+    "time_position_s": 0.0,
+    "channel_scale_v_per_div": 0.5,
+    "channel_position_div": -1.0,
+    "trigger_level_v": 1.65,
+    "record_length": 5000,
+    "waveform_points": "DMAX"
+  },
+  "sweep": {
+    "repeats": 1,
+    "alternate_order": false,
+    "steps": [
+      {"id": "Z00", "delay_ps": 0},
+      {"id": "N22", "delay_ps": -4044},
+      {"id": "N21", "delay_ps": -3860},
+      {"id": "N20", "delay_ps": -3676},
+      {"id": "N19", "delay_ps": -3493},
+      {"id": "N18", "delay_ps": -3309},
+      {"id": "N17", "delay_ps": -3125},
+      {"id": "N16", "delay_ps": -2941},
+      {"id": "N15", "delay_ps": -2757},
+      {"id": "N14", "delay_ps": -2574},
+      {"id": "ZR1", "delay_ps": 0},
+
+      {"id": "N13", "delay_ps": -2390},
+      {"id": "N12", "delay_ps": -2206},
+      {"id": "N11", "delay_ps": -2022},
+      {"id": "N10", "delay_ps": -1838},
+      {"id": "N09", "delay_ps": -1654},
+      {"id": "N08", "delay_ps": -1471},
+      {"id": "N07", "delay_ps": -1287},
+      {"id": "N06", "delay_ps": -1103},
+      {"id": "N05", "delay_ps": -919},
+      {"id": "ZR2", "delay_ps": 0},
+
+      {"id": "N04", "delay_ps": -735},
+      {"id": "N03", "delay_ps": -551},
+      {"id": "N02", "delay_ps": -368},
+      {"id": "N01", "delay_ps": -184},
+      {"id": "P01", "delay_ps": 184},
+      {"id": "P02", "delay_ps": 368},
+      {"id": "P03", "delay_ps": 551},
+      {"id": "P04", "delay_ps": 735},
+      {"id": "ZR3", "delay_ps": 0},
+
+      {"id": "P05", "delay_ps": 919},
+      {"id": "P06", "delay_ps": 1103},
+      {"id": "P07", "delay_ps": 1287},
+      {"id": "P08", "delay_ps": 1471},
+      {"id": "P09", "delay_ps": 1654},
+      {"id": "P10", "delay_ps": 1838},
+      {"id": "P11", "delay_ps": 2022},
+      {"id": "P12", "delay_ps": 2206},
+      {"id": "P13", "delay_ps": 2390},
+      {"id": "ZR4", "delay_ps": 0},
+
+      {"id": "P14", "delay_ps": 2574},
+      {"id": "P15", "delay_ps": 2757},
+      {"id": "P16", "delay_ps": 2941},
+      {"id": "P17", "delay_ps": 3125},
+      {"id": "P18", "delay_ps": 3309},
+      {"id": "P19", "delay_ps": 3493},
+      {"id": "P20", "delay_ps": 3676},
+      {"id": "P21", "delay_ps": 3860},
+      {"id": "P22", "delay_ps": 4044},
+      {"id": "ZR5", "delay_ps": 0}
+    ]
+  },
+  "paths": {
+    "output_root": "output/delay_sweep_automation"
+  }
+}
