@@ -1,123 +1,70 @@
 # STM32 HRTIM Autonomous Delay Sweep
 
-STM32G474 firmware and the RTM3004 PC automation used to build, flash, run,
-and record an autonomous precision-delay sweep.
+STM32G474 펌웨어와 RTM3004 PC 자동화 프로그램을 함께 사용하여 정밀 지연 시간을 자동으로 변경하고, 측정 결과를 저장하는 프로젝트입니다.
 
-## Run
+## 실행 방법
 
-Launch `launch_ui.bat` or run:
+`tools\automation\launch_ui.bat`를 실행하거나 저장소 루트에서 다음 명령을 실행합니다.
 
 ```powershell
 py -3 tools\automation\ui.py
 ```
 
-Connect the RTM3004 as follows:
+RTM3004와 PCB를 다음과 같이 연결합니다.
 
-| Instrument | PCB signal | Connector | MCU pin |
+| 계측기 신호 | PCB 신호 | 커넥터 | MCU 핀 |
 | --- | --- | --- | --- |
-| Generator output | IN1 | J6 | PB9 / EEV5 |
+| 신호 발생기 출력 | IN1 | J6 | PB9 / EEV5 |
 | C1 | OUT3 | J4 | PB14 / TD1 |
 | C2 | OUT4 | J5 | PB15 / TD2 |
 
-The measured delay sign is `OUT4(C2) - OUT3(C1)`. A positive value delays
-OUT4; a negative value delays OUT3.
+측정 지연 시간의 부호는 `OUT4(C2) - OUT3(C1)`입니다. 양수이면 OUT4가 지연되고, 음수이면 OUT3가 지연됩니다.
 
-## Firmware Plan
+## 펌웨어 측정 계획
 
-`config.json` is the single source for the ordered delay list, repeat count,
-and `waveforms_per_step`. Before a build, the automation generates:
+`tools/automation/config.json`은 지연 시간 목록과 반복 횟수, 단계별 파형 개수를 관리하는 기준 설정 파일입니다. 빌드 전에 자동화 프로그램이 다음 파일을 생성합니다.
 
 ```text
 Core/Inc/autonomous_sweep.h
 ```
 
-The STM32 starts at step 0 after reset. EXTI9 records the time of every rising
-edge on PB9 while the pin remains connected to HRTIM EEV5. The delay remains
-fixed throughout a burst. When no PB9 edge has arrived for 300 ms, the main loop
-applies the next delay. This is longer than the 100 ms interval inside a 10 Hz
-burst and shorter than the enforced delay between measurement points. After the
-last burst, Timer D outputs stop.
+STM32는 재설정 후 0번 단계부터 시작합니다. EXTI9는 PB9의 상승 에지마다 시간을 기록하며, PB9은 HRTIM EEV5에도 계속 연결되어 있습니다. 한 버스트가 진행되는 동안 지연 시간은 바뀌지 않습니다. PB9 입력이 300ms 동안 들어오지 않으면 메인 루프가 다음 지연 시간을 적용합니다. 이 시간은 10Hz 버스트 내부의 100ms 간격보다 길고, 측정 지점 사이에 확보한 대기 시간보다 짧습니다. 마지막 버스트가 끝나면 Timer D 출력을 정지합니다.
 
-When the plan changes, select both **Build once** and **DFU flash once**. Enter
-DFU mode when requested. For every hardware run, the UI first configures the
-RTM3004 with generator output off, enables burst mode, reapplies `SINGle` mode,
-and reads back burst state, trigger mode, cycle count, output state, and the
-SCPI error queue. Press RESET once while generator output remains off. The first
-scope acquisition is armed at zero before generator output is enabled, so the
-first input after reset belongs to the first measured point.
+측정 계획을 변경했을 때는 UI에서 `Build once`와 `DFU flash once`를 모두 선택해야 합니다. 안내가 표시되면 보드를 DFU 모드로 전환합니다. 실제 하드웨어 측정을 시작할 때마다 UI는 신호 발생기 출력을 끈 상태로 RTM3004를 먼저 설정합니다. 이후 버스트 모드를 활성화하고 `SINGle` 모드를 다시 적용한 다음, 버스트 상태와 트리거 모드, 사이클 수, 출력 상태, SCPI 오류 대기열을 확인합니다. 신호 발생기 출력이 꺼져 있는 동안 RESET을 한 번 누릅니다. 첫 번째 스코프 획득은 지연 시간 0에서 준비된 뒤 신호 발생기 출력을 켜므로, 재설정 후 첫 입력은 첫 번째 측정 지점에 해당합니다.
 
-Normal application mode does not start USB CDC. DFU programming through the
-STM32 ROM bootloader remains available.
+일반 애플리케이션 모드에서는 USB CDC를 시작하지 않습니다. STM32 ROM 부트로더를 이용한 DFU 프로그래밍은 계속 사용할 수 있습니다.
 
-## Synchronization
+## 동기화 방식
 
-For each point the scope statistics are reset while acquisition is stopped.
-The automation sets `ACQ:NSIN:COUN` to the configured waveform count and arms
-the scope with `SINGle`. Fast Segmentation is disabled so every acquired waveform
-is processed and added to the delay statistics. After the generator state and zero statistics count are
-verified, the first point enables generator output. If output enable starts an
-automatic burst, that burst is measured without sending another trigger. If no
-waveform arrives for one second, one software burst trigger is sent. Later
-points send exactly one software burst trigger. The scope reports `COMPlete`
-only after the configured number of real trigger acquisitions. Generator output
-and burst mode remain enabled and idle in `SINGle` mode between points. They are
-disabled only when the complete run ends or an error or abort occurs.
+각 측정 지점에서는 획득을 멈춘 상태로 스코프 통계를 초기화합니다. 자동화 프로그램은 `ACQ:NSIN:COUN`에 설정된 파형 개수를 입력하고 스코프를 `SINGle` 모드로 준비합니다. 모든 파형이 처리되어 지연 시간 통계에 포함되도록 고속 세그먼테이션 기능은 사용하지 않습니다.
 
-The burst phase is 180 degrees so the generator waits low between rising-edge
-triggers. After acquisition, the PC waits at least 500 ms so the firmware can
-detect the 300 ms input-idle boundary and apply the next delay. The PC and
-firmware plans are protected by the same SHA-256 signature; a mismatch stops the
-run before any measurement.
+신호 발생기 상태와 통계 샘플 수가 0인지 확인한 뒤, 첫 번째 측정 지점에서 신호 발생기 출력을 켭니다. 출력 활성화와 동시에 자동 버스트가 시작되면 추가 트리거 없이 해당 버스트를 그대로 측정합니다. 1초 동안 파형이 들어오지 않을 때만 소프트웨어 버스트 트리거를 한 번 전송합니다. 이후 측정 지점에서는 소프트웨어 버스트 트리거를 정확히 한 번씩 전송합니다. 설정된 수의 실제 트리거 획득이 끝나야 스코프가 `COMPlete` 상태를 반환합니다. 측정 지점 사이에는 신호 발생기 출력과 버스트 모드를 활성화된 대기 상태로 유지하고, 전체 실행이 끝나거나 오류 또는 중단이 발생했을 때만 비활성화합니다.
 
-Before every burst, the automation verifies the programmed Nx Single count and
-confirms that the armed statistics counter is still zero. No burst is sent if
-the counter starts increasing without a generator trigger. Completion is based
-on the scope returning `COMPlete`; `WFMCount` and the statistics sample count are
-checked afterward only to validate the result.
+버스트 위상은 180도로 설정되어 상승 에지 트리거 사이의 대기 구간에서 출력이 낮은 상태를 유지합니다. 한 측정이 끝나면 PC는 최소 500ms 동안 기다립니다. 이 시간 동안 펌웨어가 300ms 입력 유휴 구간을 감지하고 다음 지연 시간을 적용합니다. PC와 펌웨어는 동일한 SHA-256 서명으로 측정 계획을 검증하며, 서명이 다르면 측정을 시작하기 전에 실행을 중단합니다.
 
-In normal trigger mode, this RTM3004 can report `ACQ:STAT?` as `STOP` while an
-Nx Single acquisition is armed and waiting. The automation therefore checks the
-`STAT:OPER:COND?` WTRigger bit together with the acquisition state. `RUN` or
-WTRigger means armed, `COMPlete` means success, and `BREak` means interruption.
+각 버스트를 시작하기 전에 자동화 프로그램은 설정된 Nx Single 횟수를 확인하고, 준비된 통계 카운터가 여전히 0인지 검사합니다. 신호 발생기 트리거 없이 카운터가 증가하면 버스트를 전송하지 않습니다. 측정 완료 여부는 스코프의 `COMPlete` 응답으로 판단합니다. `WFMCount`와 통계 샘플 수는 측정 후 결과 검증에만 사용합니다.
 
-The point timeout is calculated from
-`waveforms_per_step / generator.frequency_hz`, with a minimum of ten seconds.
-If at least one waveform was acquired before a timeout or early scope stop, only
-the scope acquisition is stopped. The automation waits until the already
-triggered generator burst has fully drained before starting the next point.
-Available samples are saved, the point is marked `warning`, and the sweep
-continues. A zero-waveform timeout remains a hard measurement failure because
-the trigger path cannot be verified.
+일반 트리거 모드에서 이 RTM3004는 Nx Single 획득을 준비하고 트리거를 기다리는 중에도 `ACQ:STAT?`에 `STOP`을 반환할 수 있습니다. 따라서 자동화 프로그램은 획득 상태와 `STAT:OPER:COND?`의 WTRigger 비트를 함께 확인합니다. `RUN` 또는 WTRigger는 준비 완료, `COMPlete`는 측정 완료, `BREak`는 측정 중단을 의미합니다.
 
-The automation searches ordered delay samples for a persistent change point. A
-point containing two delay plateaus is saved both as the normal raw sample CSV
-and as `*_mixed_delay_samples.csv`. It is written to `summary.csv` with
-`quality_status=warning`, then the next delay is measured. Waveform-count and
-sample-count mismatches use the same warning-and-continue policy.
+측정 지점별 제한 시간은 `waveforms_per_step / generator.frequency_hz`를 기준으로 계산하며 최소 10초입니다. 제한 시간 초과 또는 스코프 조기 정지 전에 파형이 하나 이상 측정되었다면 스코프 획득만 정지합니다. 이미 트리거된 신호 발생기 버스트가 완전히 끝날 때까지 기다린 뒤 다음 측정 지점으로 넘어갑니다. 확보된 샘플은 저장하고 해당 지점을 `warning`으로 표시한 다음 전체 측정을 계속합니다. 파형이 하나도 없는 상태에서 제한 시간이 초과되면 트리거 경로를 검증할 수 없으므로 치명적인 측정 오류로 처리합니다.
 
-The default generator frequency is 10 Hz. This leaves 100 ms between output
-pairs so RTM3004 measurement statistics can record every result. If the
-frequency is reduced below 10 Hz, `PULSE_BURST_IDLE_GAP_MS` must remain longer
-than one generator period or a burst can be split into multiple steps.
+자동화 프로그램은 시간순 지연 샘플에서 지속적인 변화 지점을 검색합니다. 서로 다른 두 개의 지연 구간이 한 측정 지점에 섞여 있으면 일반 원시 샘플 CSV와 `*_mixed_delay_samples.csv`에 모두 저장합니다. `summary.csv`에는 `quality_status=warning`으로 기록하고 다음 지연 시간을 측정합니다. 파형 수 또는 샘플 수가 맞지 않는 경우에도 같은 경고 후 계속 진행하는 방식을 사용합니다.
 
-Pause and safe stop take effect between points. Abort disables the generator
-immediately. Press RESET before every new run, including after a stop, abort,
-or completed sweep.
+기본 신호 발생기 주파수는 10Hz입니다. 출력 쌍 사이에 100ms 간격을 두어 RTM3004 측정 통계가 모든 결과를 기록할 수 있게 합니다. 주파수를 10Hz보다 낮추는 경우, 하나의 버스트가 여러 단계로 나뉘지 않도록 `PULSE_BURST_IDLE_GAP_MS`를 신호 발생기 주기보다 길게 유지해야 합니다.
 
-## Saved Results
+일시 정지와 안전 정지는 현재 측정 지점이 끝난 뒤 적용됩니다. 강제 중단은 신호 발생기 출력을 즉시 끕니다. 정지, 강제 중단 또는 정상 완료 후 새 측정을 시작할 때마다 RESET을 눌러야 합니다.
 
-Each run creates a timestamped directory containing:
+## 저장 결과
 
-- `manifest.json`: complete configuration and ordered compiled plan
-- `summary.csv`: requested, quantized, measured, and quality-status fields
-- one folder per point containing plan JSON, delay samples, waveform CSV, and PNG
-- `*_partial_delay_samples.csv`: samples recovered from an interrupted point
-- `*_mixed_delay_samples.csv`: a copy of raw samples flagged as mixed plateaus
-- `run_status.json`: completed, stopped, aborted, or failed status
+실행할 때마다 시간 정보가 포함된 새 디렉터리가 생성되며 다음 파일을 저장합니다.
 
-Each PNG is transferred directly from the current RTM3004 display with
-`HCOP:DATA?`. The automation does not reuse an image file from the instrument's
-internal storage.
+- `manifest.json`: 전체 설정과 순서가 확정된 측정 계획
+- `summary.csv`: 요청값, 양자화된 값, 측정값, 품질 상태
+- 측정 지점별 폴더: 측정 계획 JSON, 지연 샘플, 파형 CSV, 화면 PNG
+- `*_partial_delay_samples.csv`: 중단된 측정 지점에서 복구한 샘플
+- `*_mixed_delay_samples.csv`: 서로 다른 지연 구간이 섞인 것으로 판정된 원시 샘플 사본
+- `run_status.json`: 완료, 정지, 강제 중단 또는 실패 상태
 
-The automation uses fixed channel scale, timebase, trigger level, delay
-reference, record length, and generator settings for comparable measurements.
+각 PNG는 `HCOP:DATA?`를 사용하여 현재 RTM3004 화면에서 직접 전송받습니다. 계측기 내부 저장소에 남아 있는 기존 이미지 파일은 재사용하지 않습니다.
+
+자동화 프로그램은 측정 결과를 일관되게 비교할 수 있도록 채널 스케일, 시간축, 트리거 레벨, 지연 기준, 레코드 길이, 신호 발생기 설정을 고정하여 사용합니다.
