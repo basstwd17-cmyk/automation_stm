@@ -1,0 +1,67 @@
+{
+  "measurement_mode": "segmented_history",
+  "scope": {
+    "host": "192.168.50.3",
+    "port": 5025,
+    "timeout_s": 5.0
+  },
+  "autonomous": {
+    "reset_settle_s": 0.5,
+    "transition_settle_s": 0.5,
+    "pulses_per_step": 1300,
+    "transition_guard_pulses": 30,
+    "transition_mode": "rising_edge_count"
+  },
+  "hardware_mapping": {
+    "input": "IN1/J6/PB9/EEV5/TimerD",
+    "scope_c1": "OUT3/J4/PB14/TD1",
+    "scope_c2": "OUT4/J5/PB15/TD2",
+    "scope_c3": "IN1/J6",
+    "delay_sign": "positive = OUT4(C2) - OUT3(C1)"
+  },
+  "generator": {
+    "control": "manual",
+    "frequency_hz": 10.0,
+    "amplitude_vpp": 3.3,
+    "offset_v": 1.65,
+    "duty_percent": 50.0
+  },
+  "acquisition": {
+    "waveforms_per_step": 1000,
+    "arm_settle_s": 0.5,
+    "time_scale_s_per_div": 1e-8,
+    "time_position_s": 4.5e-8,
+    "channel_scale_v_per_div": 1.0,
+    "channel_position_div": 0.0,
+    "channel_settings": {
+      "3": {"scale_v_per_div": 1.0, "position_div": 0.0}
+    },
+    "trigger_level_v": 1.65,
+    "record_length": 5000,
+    "waveform_points": "MAX",
+    "enabled_channels": [1, 2, 3],
+    "configured_channels": [1, 2],
+    "trigger_channel": 3
+  },
+  "k15": {
+    "smoke_segments": 3,
+    "startup_segments": 2,
+    "fixed_threshold_v": 1.65,
+    "save_all_waveforms": false,
+    "timestamp_tolerance_s": 1e-12,
+    "capture_channels": [1, 2, 3]
+  },
+  "sweep": {
+    "repeats": 1,
+    "alternate_order": false,
+    "steps": [
+      {"id": "Z00", "delay_ps": 0},
+      {"id": "P11", "delay_ps": 2022},
+      {"id": "N22", "delay_ps": -4044},
+      {"id": "P22", "delay_ps": 4044}
+    ]
+  },
+  "paths": {
+    "output_root": "output/k15_input_reference"
+  }
+}

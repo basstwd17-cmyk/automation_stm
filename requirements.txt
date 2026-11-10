@@ -1,0 +1,2 @@
+-r tools/automation/requirements.txt
+-r tools/analysis/requirements.txt

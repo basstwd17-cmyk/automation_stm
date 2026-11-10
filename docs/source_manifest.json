@@ -1,0 +1,1016 @@
+{
+  "source_baseline_commit": "255cec64",
+  "imported_files": [
+    {
+      "path": ".cproject",
+      "source_sha256": "78d10f7d9b00ee4ffbfb60d7197fa078ba1134b51991a29791814512edb9942c",
+      "packaged_sha256": "78d10f7d9b00ee4ffbfb60d7197fa078ba1134b51991a29791814512edb9942c"
+    },
+    {
+      "path": ".mxproject",
+      "source_sha256": "9c986cbba5c34f9ac97ffe3db43caa7dea32c85b1aba1b1954cd673feeb1b4b0",
+      "packaged_sha256": "9c986cbba5c34f9ac97ffe3db43caa7dea32c85b1aba1b1954cd673feeb1b4b0"
+    },
+    {
+      "path": ".project",
+      "source_sha256": "22878d454a0cfcfc6b3d33215db1f74e6ebb10bea27ddb53b36b390d9f1cba0a",
+      "packaged_sha256": "22878d454a0cfcfc6b3d33215db1f74e6ebb10bea27ddb53b36b390d9f1cba0a"
+    },
+    {
+      "path": "Core/Inc/autonomous_sweep.h",
+      "source_sha256": "796b27780d93b5a667c22c9780013640e94da47fee0962dad098e94fc70bb843",
+      "packaged_sha256": "796b27780d93b5a667c22c9780013640e94da47fee0962dad098e94fc70bb843"
+    },
+    {
+      "path": "Core/Inc/main.h",
+      "source_sha256": "25b73565b9155d3f4b974d773f4e06106be80cbdc0e28d4e7f18d9147fa85c7e",
+      "packaged_sha256": "25b73565b9155d3f4b974d773f4e06106be80cbdc0e28d4e7f18d9147fa85c7e"
+    },
+    {
+      "path": "Core/Inc/stm32g4xx_hal_conf.h",
+      "source_sha256": "1451adf59365b502369e8d7345ec3e5489466673dce036f16267797032087f28",
+      "packaged_sha256": "1451adf59365b502369e8d7345ec3e5489466673dce036f16267797032087f28"
+    },
+    {
+      "path": "Core/Inc/stm32g4xx_it.h",
+      "source_sha256": "bf1a346d064bf8580c81dd43a1432f4ae6604f64f108d855e88b78bafdc8b42d",
+      "packaged_sha256": "bf1a346d064bf8580c81dd43a1432f4ae6604f64f108d855e88b78bafdc8b42d"
+    },
+    {
+      "path": "Core/Src/main.c",
+      "source_sha256": "998f9f2167151a8e35ddd31863492236906bc9160ef14c4184d39c07a326057d",
+      "packaged_sha256": "dd1cd25bb4e368122e0f2e30a0f58f10ac75f1e6351196d5cc70f2d7e1eabc04"
+    },
+    {
+      "path": "Core/Src/stm32g4xx_hal_msp.c",
+      "source_sha256": "f51c35d72caf37c0fcf4c39d88c09859cfa186bf83108797feed5a30a0cf3125",
+      "packaged_sha256": "f51c35d72caf37c0fcf4c39d88c09859cfa186bf83108797feed5a30a0cf3125"
+    },
+    {
+      "path": "Core/Src/stm32g4xx_it.c",
+      "source_sha256": "1c3f59ce89d52d610ebdcefc1aacc80d73e23757a35f09c3e4423429cf6d9e64",
+      "packaged_sha256": "1c3f59ce89d52d610ebdcefc1aacc80d73e23757a35f09c3e4423429cf6d9e64"
+    },
+    {
+      "path": "Core/Src/syscalls.c",
+      "source_sha256": "b993ebb4f882e8be21cec8d95983655a0caf4f0eb11348f20f6371f5a5031717",
+      "packaged_sha256": "b993ebb4f882e8be21cec8d95983655a0caf4f0eb11348f20f6371f5a5031717"
+    },
+    {
+      "path": "Core/Src/sysmem.c",
+      "source_sha256": "147c60a13e805f62003d63f9de068b925e386de6d8844b1279620f715919c940",
+      "packaged_sha256": "147c60a13e805f62003d63f9de068b925e386de6d8844b1279620f715919c940"
+    },
+    {
+      "path": "Core/Src/system_stm32g4xx.c",
+      "source_sha256": "1de96c381d922635dabc0836d315d66c99b4e9d4a407fef6ee6f5c4e32b0791a",
+      "packaged_sha256": "1de96c381d922635dabc0836d315d66c99b4e9d4a407fef6ee6f5c4e32b0791a"
+    },
+    {
+      "path": "Core/Startup/startup_stm32g474ceux.s",
+      "source_sha256": "2d1952a86701643338fbe284341c9099f96a52608d40cbda35212bf14375ad2a",
+      "packaged_sha256": "2d1952a86701643338fbe284341c9099f96a52608d40cbda35212bf14375ad2a"
+    },
+    {
+      "path": "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g474xx.h",
+      "source_sha256": "e7e5851721452c415c627e233d0a617b72ba891718a4f12a495b20dee25d82b0",
+      "packaged_sha256": "e7e5851721452c415c627e233d0a617b72ba891718a4f12a495b20dee25d82b0"
+    },
+    {
+      "path": "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h",
+      "source_sha256": "493603c55af538bc431713b4f9880b5e242447cea232ca7459d3ca59c71dd48d",
+      "packaged_sha256": "493603c55af538bc431713b4f9880b5e242447cea232ca7459d3ca59c71dd48d"
+    },
+    {
+      "path": "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h",
+      "source_sha256": "36304c07e9cee84064015ebd7ae517af6f466c466c1bbf5e342c57a296601db2",
+      "packaged_sha256": "36304c07e9cee84064015ebd7ae517af6f466c466c1bbf5e342c57a296601db2"
+    },
+    {
+      "path": "Drivers/CMSIS/Device/ST/STM32G4xx/LICENSE.txt",
+      "source_sha256": "135fb2d86e9ecdf6824cc3bba21c72b8e380c07b055fbebb6b995463eb609baf",
+      "packaged_sha256": "135fb2d86e9ecdf6824cc3bba21c72b8e380c07b055fbebb6b995463eb609baf"
+    },
+    {
+      "path": "Drivers/CMSIS/Include/cmsis_armcc.h",
+      "source_sha256": "5a80286d68d0b4478895a222da683c8ca561d3bcf6392aaaea225d4a117c843e",
+      "packaged_sha256": "5a80286d68d0b4478895a222da683c8ca561d3bcf6392aaaea225d4a117c843e"
+    },
+    {
+      "path": "Drivers/CMSIS/Include/cmsis_armclang.h",
+      "source_sha256": "e24f4bd1548b94e0ad424f4f13f59a4db4ca5aad7b644d10a893a330775d3003",
+      "packaged_sha256": "e24f4bd1548b94e0ad424f4f13f59a4db4ca5aad7b644d10a893a330775d3003"
+    },
+    {
+      "path": "Drivers/CMSIS/Include/cmsis_armclang_ltm.h",
+      "source_sha256": "e8f040e9ef61e466cc751677ab3c413a463cb74d1fc33fb6dfd94225bd93c8c1",
+      "packaged_sha256": "e8f040e9ef61e466cc751677ab3c413a463cb74d1fc33fb6dfd94225bd93c8c1"
+    },
+    {
+      "path": "Drivers/CMSIS/Include/cmsis_compiler.h",
+      "source_sha256": "b51963d271c1571ca3463654c76aa7ea50c4eac5d0a2710df10414ac64d9e0f8",
+      "packaged_sha256": "b51963d271c1571ca3463654c76aa7ea50c4eac5d0a2710df10414ac64d9e0f8"
+    },
+    {
+      "path": "Drivers/CMSIS/Include/cmsis_gcc.h",
+      "source_sha256": "1fba3e120e5c0a439e0982bd37fae04bd033dbd14187428214462a1707c56252",
+      "packaged_sha256": "1fba3e120e5c0a439e0982bd37fae04bd033dbd14187428214462a1707c56252"
+    },
+    {
+      "path": "Drivers/CMSIS/Include/cmsis_iccarm.h",
+      "source_sha256": "820bcd68b0a92f97abf5cdde6413e5e842fb286e0514be2c1be1547bb2dd2e7d",
+      "packaged_sha256": "820bcd68b0a92f97abf5cdde6413e5e842fb286e0514be2c1be1547bb2dd2e7d"
+    },
+    {
+      "path": "Drivers/CMSIS/Include/cmsis_version.h",
+      "source_sha256": "1b2c47a90e9ae741c8fd4d0f323495327b25ff5d555a6c7afd6749a65ba1bb8e",
+      "packaged_sha256": "1b2c47a90e9ae741c8fd4d0f323495327b25ff5d555a6c7afd6749a65ba1bb8e"
+    },
+    {
+      "path": "Drivers/CMSIS/Include/core_armv81mml.h",
+      "source_sha256": "b4bc83a6ff10fd2fb7e4c0abefdbd447eb7f78f3db898ca9aac5676307e2b862",
+      "packaged_sha256": "b4bc83a6ff10fd2fb7e4c0abefdbd447eb7f78f3db898ca9aac5676307e2b862"
+    },
+    {
+      "path": "Drivers/CMSIS/Include/core_armv8mbl.h",
+      "source_sha256": "74b92c994af7355e222b45a0342754840b7221b611ef95bd206345879cc2caaa",
+      "packaged_sha256": "74b92c994af7355e222b45a0342754840b7221b611ef95bd206345879cc2caaa"
+    },
+    {
+      "path": "Drivers/CMSIS/Include/core_armv8mml.h",
+      "source_sha256": "77255f30508cf0d225f8b72207e28bf81353f8b353e8b120132c6db7e9bead9e",
+      "packaged_sha256": "77255f30508cf0d225f8b72207e28bf81353f8b353e8b120132c6db7e9bead9e"
+    },
+    {
+      "path": "Drivers/CMSIS/Include/core_cm0.h",
+      "source_sha256": "52e8826259be4fcb10d0de2d3655c24d52436e54cd1509f3beb1a31a45524f38",
+      "packaged_sha256": "52e8826259be4fcb10d0de2d3655c24d52436e54cd1509f3beb1a31a45524f38"
+    },
+    {
+      "path": "Drivers/CMSIS/Include/core_cm0plus.h",
+      "source_sha256": "36e9aec815eef944241e5fed7085845346de6bcb5ba30561f956356b393ba5f0",
+      "packaged_sha256": "36e9aec815eef944241e5fed7085845346de6bcb5ba30561f956356b393ba5f0"
+    },
+    {
+      "path": "Drivers/CMSIS/Include/core_cm1.h",
+      "source_sha256": "944bf0c4f940eef30a632cd99d5dcfe8270e8a8431eb98c0f081bcf4f61f728e",
+      "packaged_sha256": "944bf0c4f940eef30a632cd99d5dcfe8270e8a8431eb98c0f081bcf4f61f728e"
+    },
+    {
+      "path": "Drivers/CMSIS/Include/core_cm23.h",
+      "source_sha256": "f04d3e5f385b0ff219a75f6648acabf7debb779a72f0628573b64dac5ad49fdc",
+      "packaged_sha256": "f04d3e5f385b0ff219a75f6648acabf7debb779a72f0628573b64dac5ad49fdc"
+    },
+    {
+      "path": "Drivers/CMSIS/Include/core_cm3.h",
+      "source_sha256": "0191499015f3af7b37ce83092df29d1d63dbba9fa5f31b6d2341a2e850b20cb4",
+      "packaged_sha256": "0191499015f3af7b37ce83092df29d1d63dbba9fa5f31b6d2341a2e850b20cb4"
+    },
+    {
+      "path": "Drivers/CMSIS/Include/core_cm33.h",
+      "source_sha256": "3566c5bf835091b1cc46baf6e9b6ce94d83dd0885e0db122f43e901e9326945a",
+      "packaged_sha256": "3566c5bf835091b1cc46baf6e9b6ce94d83dd0885e0db122f43e901e9326945a"
+    },
+    {
+      "path": "Drivers/CMSIS/Include/core_cm35p.h",
+      "source_sha256": "1f6da4c033261293acb8f0a7da42a0e9b6ab392c9462cc26f5e3e35d4db4e2d3",
+      "packaged_sha256": "1f6da4c033261293acb8f0a7da42a0e9b6ab392c9462cc26f5e3e35d4db4e2d3"
+    },
+    {
+      "path": "Drivers/CMSIS/Include/core_cm4.h",
+      "source_sha256": "53d609b900c262650fcaf5a48eabd0fa299c3ac4d1426eb0f20e2aab053f8abb",
+      "packaged_sha256": "53d609b900c262650fcaf5a48eabd0fa299c3ac4d1426eb0f20e2aab053f8abb"
+    },
+    {
+      "path": "Drivers/CMSIS/Include/core_cm7.h",
+      "source_sha256": "34d91327a5f1b251c54fa6bb532d9f5ec0423bf3b7f2b679c8f7b3df95af0fc8",
+      "packaged_sha256": "34d91327a5f1b251c54fa6bb532d9f5ec0423bf3b7f2b679c8f7b3df95af0fc8"
+    },
+    {
+      "path": "Drivers/CMSIS/Include/core_sc000.h",
+      "source_sha256": "cc9037b32401824436d251de860799fcdbab3cf69e2321438c8f446f3f342526",
+      "packaged_sha256": "cc9037b32401824436d251de860799fcdbab3cf69e2321438c8f446f3f342526"
+    },
+    {
+      "path": "Drivers/CMSIS/Include/core_sc300.h",
+      "source_sha256": "e6a78d85b3ca77e35dc512e32e535028a46e156adab8629360fa4b7fe6731827",
+      "packaged_sha256": "e6a78d85b3ca77e35dc512e32e535028a46e156adab8629360fa4b7fe6731827"
+    },
+    {
+      "path": "Drivers/CMSIS/Include/mpu_armv7.h",
+      "source_sha256": "c9ad7cc99ba0481365550ae997c63cde9732d067d9ec0de28b0d6ac39280656d",
+      "packaged_sha256": "c9ad7cc99ba0481365550ae997c63cde9732d067d9ec0de28b0d6ac39280656d"
+    },
+    {
+      "path": "Drivers/CMSIS/Include/mpu_armv8.h",
+      "source_sha256": "53f9e848af62ea8704f463992e4d65c7c79fc72cfd8fab6fa14adc73478b0afd",
+      "packaged_sha256": "53f9e848af62ea8704f463992e4d65c7c79fc72cfd8fab6fa14adc73478b0afd"
+    },
+    {
+      "path": "Drivers/CMSIS/Include/tz_context.h",
+      "source_sha256": "45565c8cb04c653aabaf3cceddfc848b6a0de28c20d4f7e3d475a992c7eee788",
+      "packaged_sha256": "45565c8cb04c653aabaf3cceddfc848b6a0de28c20d4f7e3d475a992c7eee788"
+    },
+    {
+      "path": "Drivers/CMSIS/LICENSE.txt",
+      "source_sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+      "packaged_sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h",
+      "source_sha256": "97a63cd0d7e27f692d92f475179ea949751f790a08b7d80fb5f611792be98236",
+      "packaged_sha256": "97a63cd0d7e27f692d92f475179ea949751f790a08b7d80fb5f611792be98236"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h",
+      "source_sha256": "e9c236731bbd4e6095c3468ed41578965c9c7cfd7cdfebacce74493b8666bb01",
+      "packaged_sha256": "e9c236731bbd4e6095c3468ed41578965c9c7cfd7cdfebacce74493b8666bb01"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_cortex.h",
+      "source_sha256": "49a4f194ac0ae566e9c8f4c13660ba308872774bf4f55d188002e319ed602168",
+      "packaged_sha256": "49a4f194ac0ae566e9c8f4c13660ba308872774bf4f55d188002e319ed602168"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h",
+      "source_sha256": "adcb12d4eeb391241481a75f738f81dc7c186abe0ded173da3a1191803658eb7",
+      "packaged_sha256": "adcb12d4eeb391241481a75f738f81dc7c186abe0ded173da3a1191803658eb7"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h",
+      "source_sha256": "3f98e441401e895e70367809b7b2b2ec54d644abfc78d405bf8fb962bb7c9bd1",
+      "packaged_sha256": "3f98e441401e895e70367809b7b2b2ec54d644abfc78d405bf8fb962bb7c9bd1"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma_ex.h",
+      "source_sha256": "38693d56aba90b7bb6facad83fd186eabd82a765be59877771f8444fbfb00520",
+      "packaged_sha256": "38693d56aba90b7bb6facad83fd186eabd82a765be59877771f8444fbfb00520"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_exti.h",
+      "source_sha256": "67098386fcdc433f65831a0c70ac996d4e74c56ae1bc05393485b9d499239c09",
+      "packaged_sha256": "67098386fcdc433f65831a0c70ac996d4e74c56ae1bc05393485b9d499239c09"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h",
+      "source_sha256": "7bcce9a12e02de94e23343e696919874d5b7288fbb33e8e837b193626e49d14d",
+      "packaged_sha256": "7bcce9a12e02de94e23343e696919874d5b7288fbb33e8e837b193626e49d14d"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ex.h",
+      "source_sha256": "6857115967b5b929054fd9416f2f65237559201d9ed2d4dad63088b5aa72fe9f",
+      "packaged_sha256": "6857115967b5b929054fd9416f2f65237559201d9ed2d4dad63088b5aa72fe9f"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ramfunc.h",
+      "source_sha256": "59e2f2d847960b24daf76546b91fbd6b432b9883f521633cfd1f6e66f43c576a",
+      "packaged_sha256": "59e2f2d847960b24daf76546b91fbd6b432b9883f521633cfd1f6e66f43c576a"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_gpio.h",
+      "source_sha256": "21a4b96fcf61957c5c651698af760ec4c6ff8388b420b54260018216f01d5a79",
+      "packaged_sha256": "21a4b96fcf61957c5c651698af760ec4c6ff8388b420b54260018216f01d5a79"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_gpio_ex.h",
+      "source_sha256": "d790a2918fd3919af7442edf8a5b4bc28f0410bf6197bfd879266b8c554da9c2",
+      "packaged_sha256": "d790a2918fd3919af7442edf8a5b4bc28f0410bf6197bfd879266b8c554da9c2"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_hrtim.h",
+      "source_sha256": "3b599547d1b7937188a14b84274e7eab675011a4128183aec19cd00475ab5811",
+      "packaged_sha256": "3b599547d1b7937188a14b84274e7eab675011a4128183aec19cd00475ab5811"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pcd.h",
+      "source_sha256": "85336b7867d902c7f7c7fb368fb14eddfb5768250fcc2f826aa39b35f77b3f7a",
+      "packaged_sha256": "85336b7867d902c7f7c7fb368fb14eddfb5768250fcc2f826aa39b35f77b3f7a"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pcd_ex.h",
+      "source_sha256": "64a21e32be578fc1cd8e05c1c18ca505a3a9ccfd56fd704fc808b53f43d79beb",
+      "packaged_sha256": "64a21e32be578fc1cd8e05c1c18ca505a3a9ccfd56fd704fc808b53f43d79beb"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr.h",
+      "source_sha256": "132bdfc03c4360438e12b32b45672ebb4e0c7675a2074c06bbd0a121a7efd2b9",
+      "packaged_sha256": "132bdfc03c4360438e12b32b45672ebb4e0c7675a2074c06bbd0a121a7efd2b9"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h",
+      "source_sha256": "1e6a579fea6e1673a799b3c6103661db842dcd1126e5e74834e2d62181bde518",
+      "packaged_sha256": "1e6a579fea6e1673a799b3c6103661db842dcd1126e5e74834e2d62181bde518"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h",
+      "source_sha256": "e1e829e43ff629948890c920268592b47a7a9e06cceb86b6c6e9f6e49fd469a2",
+      "packaged_sha256": "e1e829e43ff629948890c920268592b47a7a9e06cceb86b6c6e9f6e49fd469a2"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc_ex.h",
+      "source_sha256": "9056e7522c2600b29e985e7d6ef1814d5408fffb700803a11096bbba97ad3a5d",
+      "packaged_sha256": "9056e7522c2600b29e985e7d6ef1814d5408fffb700803a11096bbba97ad3a5d"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_bus.h",
+      "source_sha256": "44afb6ca13072671e1e4389800d28b3a8be922825e78481b911cbb3702f0c231",
+      "packaged_sha256": "44afb6ca13072671e1e4389800d28b3a8be922825e78481b911cbb3702f0c231"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_cortex.h",
+      "source_sha256": "0d8090fd47c74ef211b3ddb553f634a8b382af8873ccaa5faf4801e713e4b984",
+      "packaged_sha256": "0d8090fd47c74ef211b3ddb553f634a8b382af8873ccaa5faf4801e713e4b984"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_crs.h",
+      "source_sha256": "c2b17ded704016f571465838bee2a618c6a097b8935a367a7b75f8c84eea071e",
+      "packaged_sha256": "c2b17ded704016f571465838bee2a618c6a097b8935a367a7b75f8c84eea071e"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dma.h",
+      "source_sha256": "6b798aaf2e014bfb74da4837ecdf0a4a6f47b43f270e8cf4b0e93a8129dd1c50",
+      "packaged_sha256": "6b798aaf2e014bfb74da4837ecdf0a4a6f47b43f270e8cf4b0e93a8129dd1c50"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dmamux.h",
+      "source_sha256": "ae7fa0016736254d0bef8527893ac93bbe5ff6a740aae7438431ac65dc6a0d0c",
+      "packaged_sha256": "ae7fa0016736254d0bef8527893ac93bbe5ff6a740aae7438431ac65dc6a0d0c"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_exti.h",
+      "source_sha256": "466423accc1c07a5fd3612b9ccb9b159184829b3af8a027a5f4aaaa174346f01",
+      "packaged_sha256": "466423accc1c07a5fd3612b9ccb9b159184829b3af8a027a5f4aaaa174346f01"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h",
+      "source_sha256": "1d47edaacaa6f45101ae9eb1f3403f03c3daa9c14fc79db9d751d0e3caa45b2d",
+      "packaged_sha256": "1d47edaacaa6f45101ae9eb1f3403f03c3daa9c14fc79db9d751d0e3caa45b2d"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_hrtim.h",
+      "source_sha256": "5541a3205f0f7d2bae1a10ed24a2a951da8bb091ff0a9945306e3aa5056d33f2",
+      "packaged_sha256": "5541a3205f0f7d2bae1a10ed24a2a951da8bb091ff0a9945306e3aa5056d33f2"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_pwr.h",
+      "source_sha256": "ba6ff92d9cdaa69303abd8439b06dc32468c188bcfc65499a2a8dc702a291982",
+      "packaged_sha256": "ba6ff92d9cdaa69303abd8439b06dc32468c188bcfc65499a2a8dc702a291982"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_rcc.h",
+      "source_sha256": "bd54a7974fe8497de2138ae290b913d2b0c6e138d3272263622bc7a3f25febe6",
+      "packaged_sha256": "bd54a7974fe8497de2138ae290b913d2b0c6e138d3272263622bc7a3f25febe6"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_system.h",
+      "source_sha256": "a0ca093590e36ea19b9ef168cff1ed4973eccdc4a76661d8903264a3cace3bb5",
+      "packaged_sha256": "a0ca093590e36ea19b9ef168cff1ed4973eccdc4a76661d8903264a3cace3bb5"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usb.h",
+      "source_sha256": "9cbdbb2762ad92a2bcb8f41333157f4a4350591b8526b35cba2d196efe1b1cbd",
+      "packaged_sha256": "9cbdbb2762ad92a2bcb8f41333157f4a4350591b8526b35cba2d196efe1b1cbd"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_utils.h",
+      "source_sha256": "1983eb94d3edcb11aee1d416a0ee823f7f8b52c3a6888408b52acd4a32435df6",
+      "packaged_sha256": "1983eb94d3edcb11aee1d416a0ee823f7f8b52c3a6888408b52acd4a32435df6"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/LICENSE.txt",
+      "source_sha256": "d5a162f3eaf2b7b6762f00700017cae5695ebbdce7932fead8316448baafd9c1",
+      "packaged_sha256": "d5a162f3eaf2b7b6762f00700017cae5695ebbdce7932fead8316448baafd9c1"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c",
+      "source_sha256": "96a7c255246ad457497d2ac4018d00679761b8adeba8e196770ad22391dcb474",
+      "packaged_sha256": "96a7c255246ad457497d2ac4018d00679761b8adeba8e196770ad22391dcb474"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c",
+      "source_sha256": "764627455c7ccfd157b45fe7bd5effe78d1bc1c8f99af041f39e1e1e7197c3b6",
+      "packaged_sha256": "764627455c7ccfd157b45fe7bd5effe78d1bc1c8f99af041f39e1e1e7197c3b6"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c",
+      "source_sha256": "68f8f023a5c516a5d0ba9aa2459b8441fe3f187d7983c18960fa6f37bced4b7b",
+      "packaged_sha256": "68f8f023a5c516a5d0ba9aa2459b8441fe3f187d7983c18960fa6f37bced4b7b"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c",
+      "source_sha256": "750bba8c3af33a2c5ea5588681baff79e028baec3080473ae550f98a79d3e57c",
+      "packaged_sha256": "750bba8c3af33a2c5ea5588681baff79e028baec3080473ae550f98a79d3e57c"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c",
+      "source_sha256": "eb1687b291e66fdf7a5a4fb8496f5d411be6c86edd3d75147f64e9e19bc192b3",
+      "packaged_sha256": "eb1687b291e66fdf7a5a4fb8496f5d411be6c86edd3d75147f64e9e19bc192b3"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c",
+      "source_sha256": "7894f8cf4a3bd8b214fc826cbb93aa9a20596cfc3c45760f6f775d79e28cbda4",
+      "packaged_sha256": "7894f8cf4a3bd8b214fc826cbb93aa9a20596cfc3c45760f6f775d79e28cbda4"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c",
+      "source_sha256": "faa9d7ffa04c9072035273fdf1dedbfee1886a4f58d29f5d0b075263ef06bc30",
+      "packaged_sha256": "faa9d7ffa04c9072035273fdf1dedbfee1886a4f58d29f5d0b075263ef06bc30"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c",
+      "source_sha256": "5d5d66378381d9db97bfae8077818de467344119516c00d205132786b0b67279",
+      "packaged_sha256": "5d5d66378381d9db97bfae8077818de467344119516c00d205132786b0b67279"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c",
+      "source_sha256": "7bff46e900a1ba30375a98dc58369b9e4e0aab2ee6ea30e5d70e1ece449d5cae",
+      "packaged_sha256": "7bff46e900a1ba30375a98dc58369b9e4e0aab2ee6ea30e5d70e1ece449d5cae"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c",
+      "source_sha256": "9769ae02117154a216ef732910b07bc4eb4c1df1ed2ae1c66629e9f3bcb725f0",
+      "packaged_sha256": "9769ae02117154a216ef732910b07bc4eb4c1df1ed2ae1c66629e9f3bcb725f0"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd.c",
+      "source_sha256": "675564f8bbe22ebfa008e1d782be43625dc70deacb7ffd8a4eed8ae319ce29dd",
+      "packaged_sha256": "675564f8bbe22ebfa008e1d782be43625dc70deacb7ffd8a4eed8ae319ce29dd"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd_ex.c",
+      "source_sha256": "2418f3769cd40af202a42cc9f37a41a67645268da0d8339b2d81b832172bf98b",
+      "packaged_sha256": "2418f3769cd40af202a42cc9f37a41a67645268da0d8339b2d81b832172bf98b"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c",
+      "source_sha256": "a8303b059435dfe1e6e6a558ca1b1441c875156058d7cf9cc49a21264409f7af",
+      "packaged_sha256": "a8303b059435dfe1e6e6a558ca1b1441c875156058d7cf9cc49a21264409f7af"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c",
+      "source_sha256": "e86b738668581f6e1a2acf59010f5eceb236f94a0dc6a1a8554ddf24a6437bd4",
+      "packaged_sha256": "e86b738668581f6e1a2acf59010f5eceb236f94a0dc6a1a8554ddf24a6437bd4"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c",
+      "source_sha256": "446b3b7319a22f118526a4665da8971ba48c0c31634a32a2215c6aa8b8a9ba3e",
+      "packaged_sha256": "446b3b7319a22f118526a4665da8971ba48c0c31634a32a2215c6aa8b8a9ba3e"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c",
+      "source_sha256": "e82f43fd5c78801d126b86ea083853d6ea263935d77ae0b3da7d50fea4806ae4",
+      "packaged_sha256": "e82f43fd5c78801d126b86ea083853d6ea263935d77ae0b3da7d50fea4806ae4"
+    },
+    {
+      "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_usb.c",
+      "source_sha256": "8f0184da5287812d825105e66d6b0c58bb27997a92725b2a1035f1a743453c93",
+      "packaged_sha256": "8f0184da5287812d825105e66d6b0c58bb27997a92725b2a1035f1a743453c93"
+    },
+    {
+      "path": "Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h",
+      "source_sha256": "e30fb993ed6736743dd4f9e9cd6632eed7a424cf29231be6f56ecaa2bb847141",
+      "packaged_sha256": "e30fb993ed6736743dd4f9e9cd6632eed7a424cf29231be6f56ecaa2bb847141"
+    },
+    {
+      "path": "Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c",
+      "source_sha256": "9793c617df7ce50dd867da8afbdde0321d332ec3164b37523b32ba577b842e0b",
+      "packaged_sha256": "9793c617df7ce50dd867da8afbdde0321d332ec3164b37523b32ba577b842e0b"
+    },
+    {
+      "path": "Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h",
+      "source_sha256": "38151ddb35f94815ecc5191d59195230158bdda4cd9d62e8875c68b7988e488a",
+      "packaged_sha256": "38151ddb35f94815ecc5191d59195230158bdda4cd9d62e8875c68b7988e488a"
+    },
+    {
+      "path": "Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h",
+      "source_sha256": "8d85b8e500efea57fca4d047c570e317ff203c0994a9d1228ce7c2da33683fad",
+      "packaged_sha256": "8d85b8e500efea57fca4d047c570e317ff203c0994a9d1228ce7c2da33683fad"
+    },
+    {
+      "path": "Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h",
+      "source_sha256": "023f7e593cca0cdb6d3168af0495765aadc4342d3ffd851976d6fe5a75724717",
+      "packaged_sha256": "023f7e593cca0cdb6d3168af0495765aadc4342d3ffd851976d6fe5a75724717"
+    },
+    {
+      "path": "Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h",
+      "source_sha256": "e77fe2d994c614135e26600efbc0de11e8ee17de7826ab271df521ca17be8514",
+      "packaged_sha256": "e77fe2d994c614135e26600efbc0de11e8ee17de7826ab271df521ca17be8514"
+    },
+    {
+      "path": "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c",
+      "source_sha256": "8709e75cb79cc5a02f630989644acf615e9360b57674c15d1b7cd2ef38fbced6",
+      "packaged_sha256": "8709e75cb79cc5a02f630989644acf615e9360b57674c15d1b7cd2ef38fbced6"
+    },
+    {
+      "path": "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c",
+      "source_sha256": "1337132143aa21d9b45a2f24143a5df2ea11ec3bece29ca87170b02c1d1a5e36",
+      "packaged_sha256": "1337132143aa21d9b45a2f24143a5df2ea11ec3bece29ca87170b02c1d1a5e36"
+    },
+    {
+      "path": "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c",
+      "source_sha256": "e925f786417d05882ed48d891df8816d8232a6297ca78fe1c4a3e112e1628918",
+      "packaged_sha256": "e925f786417d05882ed48d891df8816d8232a6297ca78fe1c4a3e112e1628918"
+    },
+    {
+      "path": "STM32G474CEUX_FLASH.ld",
+      "source_sha256": "a849dda8e1a79183442cfc056511e44e1589e557baec37e8482364b21712d9c5",
+      "packaged_sha256": "a849dda8e1a79183442cfc056511e44e1589e557baec37e8482364b21712d9c5"
+    },
+    {
+      "path": "STM32G474CEUX_RAM.ld",
+      "source_sha256": "77ac6262886590dc5432e0d2a5627bf62c3c86afff45ca89c0d3c0113d3a8ed7",
+      "packaged_sha256": "77ac6262886590dc5432e0d2a5627bf62c3c86afff45ca89c0d3c0113d3a8ed7"
+    },
+    {
+      "path": "USB_Device/App/usb_device.c",
+      "source_sha256": "e5ce888cfd7236cae8d93160dada164e77b157f2820f08ee7ea7c50ec0f67bce",
+      "packaged_sha256": "e5ce888cfd7236cae8d93160dada164e77b157f2820f08ee7ea7c50ec0f67bce"
+    },
+    {
+      "path": "USB_Device/App/usb_device.h",
+      "source_sha256": "7054955ab60f3092900d7ca734eebc66e1946bf8b2ff8fb57661e95daee2faea",
+      "packaged_sha256": "7054955ab60f3092900d7ca734eebc66e1946bf8b2ff8fb57661e95daee2faea"
+    },
+    {
+      "path": "USB_Device/App/usbd_cdc_if.c",
+      "source_sha256": "8dfa8ed9791d8be8b6feabd7c64e4c4931ae07e6cebf4344bcc38aa9da727f54",
+      "packaged_sha256": "8dfa8ed9791d8be8b6feabd7c64e4c4931ae07e6cebf4344bcc38aa9da727f54"
+    },
+    {
+      "path": "USB_Device/App/usbd_cdc_if.h",
+      "source_sha256": "5e8f14d78c4f293cb64e5d5de8365bca74e4288f97adb16055d4401878ed917d",
+      "packaged_sha256": "5e8f14d78c4f293cb64e5d5de8365bca74e4288f97adb16055d4401878ed917d"
+    },
+    {
+      "path": "USB_Device/App/usbd_desc.c",
+      "source_sha256": "bbc841d85c5f5f3e38554921801328c44f4d97150101bba1ffe76aa5992ba2df",
+      "packaged_sha256": "bbc841d85c5f5f3e38554921801328c44f4d97150101bba1ffe76aa5992ba2df"
+    },
+    {
+      "path": "USB_Device/App/usbd_desc.h",
+      "source_sha256": "ee0265497f4eef80140b7360719351c1a834fc6b27d4c6cc7fa2aa709129ce32",
+      "packaged_sha256": "ee0265497f4eef80140b7360719351c1a834fc6b27d4c6cc7fa2aa709129ce32"
+    },
+    {
+      "path": "USB_Device/Target/usbd_conf.c",
+      "source_sha256": "1da0700fb9721eee9b1038343c58dc4a3fdd9416e60abd034c8486d7b4cf6fba",
+      "packaged_sha256": "1da0700fb9721eee9b1038343c58dc4a3fdd9416e60abd034c8486d7b4cf6fba"
+    },
+    {
+      "path": "USB_Device/Target/usbd_conf.h",
+      "source_sha256": "0accc25f4df6bcaa6038a341a9aeb3611e76be6b1f98e44521088417ba35b425",
+      "packaged_sha256": "0accc25f4df6bcaa6038a341a9aeb3611e76be6b1f98e44521088417ba35b425"
+    },
+    {
+      "path": "delay_generator_g474ceu6.ioc",
+      "source_sha256": "78023e62086417d242752f21004b945b7170b5174318ecd69af2a810300913b2",
+      "packaged_sha256": "78023e62086417d242752f21004b945b7170b5174318ecd69af2a810300913b2"
+    },
+    {
+      "path": "tools/analysis/analyze_ab_c1c2.py",
+      "source_sha256": "337bc216cb60488a43caae4928401bac5e9873fa91f0751783f5dd4f8dbfc700",
+      "packaged_sha256": "526161747957826fb39b6b49f1789c8582d1da94097328034a5ad6f8e2e87f24"
+    },
+    {
+      "path": "tools/analysis/analyze_c1_c2_four_runs.py",
+      "source_sha256": "87f33ac8bf1a11cc8e3d2c06ce1a46e2b144fc8fcf8db754597a8308713523dd",
+      "packaged_sha256": "87f33ac8bf1a11cc8e3d2c06ce1a46e2b144fc8fcf8db754597a8308713523dd"
+    },
+    {
+      "path": "tools/analysis/analyze_c1c2.py",
+      "source_sha256": "8f6103e8a01ac351c0c1b27eb140b6f540a5a1b25f4e34a7f35c7f0df10c3407",
+      "packaged_sha256": "8f6103e8a01ac351c0c1b27eb140b6f540a5a1b25f4e34a7f35c7f0df10c3407"
+    },
+    {
+      "path": "tools/analysis/analyze_delay_sweep.py",
+      "source_sha256": "1603ad638f5c8c021d361dcba9e86f0ea989fb80231be4fd9b8189666e0c52db",
+      "packaged_sha256": "1603ad638f5c8c021d361dcba9e86f0ea989fb80231be4fd9b8189666e0c52db"
+    },
+    {
+      "path": "tools/analysis/analyze_input_output_jitter.py",
+      "source_sha256": "e152927e89ccdfb02281bf4dc53048d661a6fa71e5fe7328da2c0a817992b262",
+      "packaged_sha256": "e152927e89ccdfb02281bf4dc53048d661a6fa71e5fe7328da2c0a817992b262"
+    },
+    {
+      "path": "tools/analysis/analyze_raw_offset_trend.py",
+      "source_sha256": "0c9a76f64386328c8c634a2f64173132b10e2e0ab54b4d1ffbbcc8db95f14f96",
+      "packaged_sha256": "0c9a76f64386328c8c634a2f64173132b10e2e0ab54b4d1ffbbcc8db95f14f96"
+    },
+    {
+      "path": "tools/analysis/analyze_repeat_sweep.py",
+      "source_sha256": "ac98ec727e6c2585e928663abe694729044b58d774a31c5dd4c3d3137bc00758",
+      "packaged_sha256": "ac98ec727e6c2585e928663abe694729044b58d774a31c5dd4c3d3137bc00758"
+    },
+    {
+      "path": "tools/analysis/render_ab_c1c2_clean.py",
+      "source_sha256": "daf63ad79ba547fd18a98a99f8d044a2f18d4820d9c586e6f979af6340e7a5d5",
+      "packaged_sha256": "419623f3dd38ce83fd09d1a90ff8af6cd8c2c26c958d08c0d8de7028828d9efc"
+    },
+    {
+      "path": "tools/analysis/requirements.txt",
+      "source_sha256": "be962eeeecd348b8916cfba280d12d5aea2fe8fd2b01df6f4a2aa8af748d6c46",
+      "packaged_sha256": "88be0be0dd6708719c3df344371bde7cab0e1a52f24fe6e495e958afedf2d857"
+    },
+    {
+      "path": "tools/automation/README.md",
+      "source_sha256": "4230f725f2fa820b29b53b82b35e3ecb694948a9554f114a3ec4619ac8148ddb",
+      "packaged_sha256": "4230f725f2fa820b29b53b82b35e3ecb694948a9554f114a3ec4619ac8148ddb"
+    },
+    {
+      "path": "tools/automation/ab_compare/README.md",
+      "source_sha256": "45928a3b06d17b06951be898196973d57bc13f85ecdab80b24be50d3a9697b45",
+      "packaged_sha256": "45928a3b06d17b06951be898196973d57bc13f85ecdab80b24be50d3a9697b45"
+    },
+    {
+      "path": "tools/automation/ab_compare/TECHNICAL_REFERENCE.md",
+      "source_sha256": "d0727e15531972731f14fa0d37b203c1d99964d9e547e68528b64ec273d8b801",
+      "packaged_sha256": "d0727e15531972731f14fa0d37b203c1d99964d9e547e68528b64ec273d8b801"
+    },
+    {
+      "path": "tools/automation/ab_compare/__init__.py",
+      "source_sha256": "51f615ef6f068707eba747e9a74487ce92cecb8b47bbf548c0643bfc69efe061",
+      "packaged_sha256": "51f615ef6f068707eba747e9a74487ce92cecb8b47bbf548c0643bfc69efe061"
+    },
+    {
+      "path": "tools/automation/ab_compare/compare_runs.py",
+      "source_sha256": "3125f0dced77aad5809863dbd1521a078a12ab2a0062c3b8fefb834d2ab0d9a2",
+      "packaged_sha256": "3125f0dced77aad5809863dbd1521a078a12ab2a0062c3b8fefb834d2ab0d9a2"
+    },
+    {
+      "path": "tools/automation/ab_compare/config.json",
+      "source_sha256": "196f5e12792f6abb16f9cd2c22043fed3360ab671b5be6e665356ab670c1590c",
+      "packaged_sha256": "196f5e12792f6abb16f9cd2c22043fed3360ab671b5be6e665356ab670c1590c"
+    },
+    {
+      "path": "tools/automation/ab_compare/launch_cli.bat",
+      "source_sha256": "116351b82705c0afda26fda06df8bd2f53755313d89c9c4a8f999de91c0388ac",
+      "packaged_sha256": "116351b82705c0afda26fda06df8bd2f53755313d89c9c4a8f999de91c0388ac"
+    },
+    {
+      "path": "tools/automation/ab_compare/launch_ui.bat",
+      "source_sha256": "30cc6cd6492e35ca8e33d2346f20bbe495857748d8f0429583662b63a8ba2022",
+      "packaged_sha256": "30cc6cd6492e35ca8e33d2346f20bbe495857748d8f0429583662b63a8ba2022"
+    },
+    {
+      "path": "tools/automation/ab_compare/run.py",
+      "source_sha256": "8b70546586b34344294c558dd25a94912c469e86eb8b9939e0e0ca9c7ecc40ea",
+      "packaged_sha256": "8b70546586b34344294c558dd25a94912c469e86eb8b9939e0e0ca9c7ecc40ea"
+    },
+    {
+      "path": "tools/automation/ab_compare/ui.py",
+      "source_sha256": "c657159a29911bae252a18310df49fa6df9231ed71623fb0f98127d9b932f2df",
+      "packaged_sha256": "c657159a29911bae252a18310df49fa6df9231ed71623fb0f98127d9b932f2df"
+    },
+    {
+      "path": "tools/automation/common/__init__.py",
+      "source_sha256": "5d298e70978fb55e2362290113e973d56f8df5363a1c31807fde6ba75b044a84",
+      "packaged_sha256": "5d298e70978fb55e2362290113e973d56f8df5363a1c31807fde6ba75b044a84"
+    },
+    {
+      "path": "tools/automation/common/plan.py",
+      "source_sha256": "a8844d39e339621085bf31eb33d7ff404f44393e4567ad41357d7845993c1830",
+      "packaged_sha256": "a8844d39e339621085bf31eb33d7ff404f44393e4567ad41357d7845993c1830"
+    },
+    {
+      "path": "tools/automation/common/rtm3004.py",
+      "source_sha256": "3df4a525a7383b1bf8acce35b1cfb0192e5a90965e6eb59aeb7ae9cdb278e18c",
+      "packaged_sha256": "3df4a525a7383b1bf8acce35b1cfb0192e5a90965e6eb59aeb7ae9cdb278e18c"
+    },
+    {
+      "path": "tools/automation/common/serial_device.py",
+      "source_sha256": "97ab506b920a43bfbcfa12a9085f66c3e0f34d69783360c2fdf41a15ac3b307d",
+      "packaged_sha256": "97ab506b920a43bfbcfa12a9085f66c3e0f34d69783360c2fdf41a15ac3b307d"
+    },
+    {
+      "path": "tools/automation/common/statistics_runner.py",
+      "source_sha256": "b97ffcbefaf56fb51b4899173b96bd947675bd842ee2e84644a4694941cbf55a",
+      "packaged_sha256": "6f35d85799c25996cfef30d43f1dfb5d58a861ea43cf44f7d19a41fbb41f7fe8"
+    },
+    {
+      "path": "tools/automation/k15/INPUT_OUTPUT_MEASUREMENT_GUIDE.md",
+      "source_sha256": "dc3812917c1e238c5d799fdf2211f6779fbb24a2f134cdc89910218b2e84b697",
+      "packaged_sha256": "c2aa9c7d545298aebd5fb9af64112bc4b1c0f484db7f4a51808a88f88af69137"
+    },
+    {
+      "path": "tools/automation/k15/README.md",
+      "source_sha256": "c757ed2d1875928ba4bcc33a4d055bd4a2ecedb220fdf8660d2b4b5ae35abe1a",
+      "packaged_sha256": "c757ed2d1875928ba4bcc33a4d055bd4a2ecedb220fdf8660d2b4b5ae35abe1a"
+    },
+    {
+      "path": "tools/automation/k15/__init__.py",
+      "source_sha256": "05571751412f2e901db009930f31162a1faf1da110b7c37defa20b5536a27563",
+      "packaged_sha256": "05571751412f2e901db009930f31162a1faf1da110b7c37defa20b5536a27563"
+    },
+    {
+      "path": "tools/automation/k15/config.json",
+      "source_sha256": "cbbcc2203f53ce91da131f7985bc36d5e3c36d3865fb4abed68f4f451277ec28",
+      "packaged_sha256": "cbbcc2203f53ce91da131f7985bc36d5e3c36d3865fb4abed68f4f451277ec28"
+    },
+    {
+      "path": "tools/automation/k15/config_input_reference.json",
+      "source_sha256": "ab7319f8e247e7ec43d7ba79b61eedf0d39d25f6c140bed72ca016da14ea4bc4",
+      "packaged_sha256": "ab7319f8e247e7ec43d7ba79b61eedf0d39d25f6c140bed72ca016da14ea4bc4"
+    },
+    {
+      "path": "tools/automation/k15/config_input_reference_diagnostic.json",
+      "source_sha256": "120950e2c6a2c44cbf0de3f3f19d179881e2336397f265316e9aa2bd32cfec98",
+      "packaged_sha256": "120950e2c6a2c44cbf0de3f3f19d179881e2336397f265316e9aa2bd32cfec98"
+    },
+    {
+      "path": "tools/automation/k15/external_input_k15.py",
+      "source_sha256": "4df01a243e4e97a0add9c3b70fc2f1520cd50a8022dc5164c51ecc65cb10ecbf",
+      "packaged_sha256": "7af6a736bc6cdaba44c3702dc192f30d91f692b42f5604c920f0d301d6d89120"
+    },
+    {
+      "path": "tools/automation/k15/external_input_statistics_sweep.py",
+      "source_sha256": "6b2f7fd9b3fb26c9ffaf2aa34f1df1db17d04dbbd264da33a6b4f84c3c7069c1",
+      "packaged_sha256": "6b2f7fd9b3fb26c9ffaf2aa34f1df1db17d04dbbd264da33a6b4f84c3c7069c1"
+    },
+    {
+      "path": "tools/automation/k15/launch_external_input_fast_statistics_main.bat",
+      "source_sha256": "b121596cb19bcffa0436ccd8f78c56a658b1d1d01a9479da13023e7d843885e9",
+      "packaged_sha256": "b121596cb19bcffa0436ccd8f78c56a658b1d1d01a9479da13023e7d843885e9"
+    },
+    {
+      "path": "tools/automation/k15/launch_external_input_fast_statistics_smoke.bat",
+      "source_sha256": "06bd51c97dccb0aafe944ce6cf1eefbbffc6dd9e9bb6f85520ffa480bc87f650",
+      "packaged_sha256": "06bd51c97dccb0aafe944ce6cf1eefbbffc6dd9e9bb6f85520ffa480bc87f650"
+    },
+    {
+      "path": "tools/automation/k15/launch_external_input_main.bat",
+      "source_sha256": "a1922427f52582a9c7bfed9c4458b40458e023fc3e7b977691b32039c6989932",
+      "packaged_sha256": "a1922427f52582a9c7bfed9c4458b40458e023fc3e7b977691b32039c6989932"
+    },
+    {
+      "path": "tools/automation/k15/launch_external_input_smoke.bat",
+      "source_sha256": "c9346ee33d02fff988410ea3b7fbdf0cf0a7449054650d103f32a9f13203f0be",
+      "packaged_sha256": "c9346ee33d02fff988410ea3b7fbdf0cf0a7449054650d103f32a9f13203f0be"
+    },
+    {
+      "path": "tools/automation/k15/launch_external_input_sweep.bat",
+      "source_sha256": "8c26472f82069dc8865a64c47654081f65f472fde50a7c5048ac12131377968e",
+      "packaged_sha256": "8c26472f82069dc8865a64c47654081f65f472fde50a7c5048ac12131377968e"
+    },
+    {
+      "path": "tools/automation/k15/launch_input_diagnostic_smoke.bat",
+      "source_sha256": "275dc377139b1b0832492190fbb4eea9d392b77fd7958b65d7f11eb0b7283ea4",
+      "packaged_sha256": "275dc377139b1b0832492190fbb4eea9d392b77fd7958b65d7f11eb0b7283ea4"
+    },
+    {
+      "path": "tools/automation/k15/launch_input_diagnostic_smoke_no_flash.bat",
+      "source_sha256": "ea68d9f5d3308507555f6eeed974506bd8510b143e624d45463e6b9d8e3ecb87",
+      "packaged_sha256": "ea68d9f5d3308507555f6eeed974506bd8510b143e624d45463e6b9d8e3ecb87"
+    },
+    {
+      "path": "tools/automation/k15/launch_input_main.bat",
+      "source_sha256": "c74921298154f3b76b3942e333bbf82e968fe60ff93c4e7b52a6416893abe096",
+      "packaged_sha256": "c74921298154f3b76b3942e333bbf82e968fe60ff93c4e7b52a6416893abe096"
+    },
+    {
+      "path": "tools/automation/k15/launch_input_main_no_flash.bat",
+      "source_sha256": "3564e5cbc751e926b90a56ea171a32955267f6cc62ebccf2305f822feb3d45ae",
+      "packaged_sha256": "3564e5cbc751e926b90a56ea171a32955267f6cc62ebccf2305f822feb3d45ae"
+    },
+    {
+      "path": "tools/automation/k15/launch_input_smoke.bat",
+      "source_sha256": "d9a8909d3d563cfb4fb6fbda96f7bfeda9f656ab7d92b38782c1777b348b105c",
+      "packaged_sha256": "d9a8909d3d563cfb4fb6fbda96f7bfeda9f656ab7d92b38782c1777b348b105c"
+    },
+    {
+      "path": "tools/automation/k15/launch_input_smoke_no_flash.bat",
+      "source_sha256": "01f8450e434aa5dcc71bc82fb12aa31a36d108482028207334214767685340ba",
+      "packaged_sha256": "01f8450e434aa5dcc71bc82fb12aa31a36d108482028207334214767685340ba"
+    },
+    {
+      "path": "tools/automation/k15/launch_main.bat",
+      "source_sha256": "b574fb66bfcf85e40bab9067cdffe5cb367aa56d6c952772ac055932ff8bd58f",
+      "packaged_sha256": "b574fb66bfcf85e40bab9067cdffe5cb367aa56d6c952772ac055932ff8bd58f"
+    },
+    {
+      "path": "tools/automation/k15/launch_manual_gen_smoke.bat",
+      "source_sha256": "f2490810abb5b69301738b72b1866b1d6a9c0161aaef8c336b5a0a62bf3685c9",
+      "packaged_sha256": "f2490810abb5b69301738b72b1866b1d6a9c0161aaef8c336b5a0a62bf3685c9"
+    },
+    {
+      "path": "tools/automation/k15/launch_recover_external_input_k15_1000.bat",
+      "source_sha256": "9bb7fb8f3ec1be0ba8ec11ac8bae9566d1b516250387aab0878247ac3203e377",
+      "packaged_sha256": "9bb7fb8f3ec1be0ba8ec11ac8bae9566d1b516250387aab0878247ac3203e377"
+    },
+    {
+      "path": "tools/automation/k15/launch_smoke.bat",
+      "source_sha256": "29542f051a7fed193140f3476673d70f04e66497722c8856ca88db906280de22",
+      "packaged_sha256": "29542f051a7fed193140f3476673d70f04e66497722c8856ca88db906280de22"
+    },
+    {
+      "path": "tools/automation/k15/manual_gen_smoke.py",
+      "source_sha256": "d3efeb2707cee7a337709fb0b07c52e42081ac07146355f7f8eab53e2b55a594",
+      "packaged_sha256": "d3efeb2707cee7a337709fb0b07c52e42081ac07146355f7f8eab53e2b55a594"
+    },
+    {
+      "path": "tools/automation/k15/recover_external_input_k15_history.py",
+      "source_sha256": "d8fcaae6a9ddb1f155b11421a1a77c513c0e21f1923e852e33c8f26de14d1f8a",
+      "packaged_sha256": "4cda66303f8473d7f543a93401133c8a162bae5ae6ee94ec7ad1c0ee696833ca"
+    },
+    {
+      "path": "tools/automation/k15/resume_external_input_k15_history.py",
+      "source_sha256": "ffe069caef289079ea110716cec123a23dd6c7dda6c8cf0aef6e3f45ee0fcaa8",
+      "packaged_sha256": "ffe069caef289079ea110716cec123a23dd6c7dda6c8cf0aef6e3f45ee0fcaa8"
+    },
+    {
+      "path": "tools/automation/k15/runner.py",
+      "source_sha256": "6d904f99ffcc239587eb766dc0497cfa2f2e996e4628e7c0dfa0b82e6250a981",
+      "packaged_sha256": "fe365df290154224534e9ee2749e6015f5201b208a790ec71b88f5b641791a89"
+    },
+    {
+      "path": "tools/automation/k15/trigger_preflight.py",
+      "source_sha256": "279080408ad90767c7a526fa5225f01d3d6bb48191ea5c39718bc0c246ee5c71",
+      "packaged_sha256": "279080408ad90767c7a526fa5225f01d3d6bb48191ea5c39718bc0c246ee5c71"
+    },
+    {
+      "path": "tools/automation/k15_runner.py",
+      "source_sha256": "b848a0f9ce74e1fd27dcb9077aecb1ed1df1de94f09bf1ebfebde5da6078f84e",
+      "packaged_sha256": "b848a0f9ce74e1fd27dcb9077aecb1ed1df1de94f09bf1ebfebde5da6078f84e"
+    },
+    {
+      "path": "tools/automation/k37/README.md",
+      "source_sha256": "292fbf401f97708eea2f4c0e380e0ae2c0e65cc8bce223206c5ce01fb4c2b1b1",
+      "packaged_sha256": "292fbf401f97708eea2f4c0e380e0ae2c0e65cc8bce223206c5ce01fb4c2b1b1"
+    },
+    {
+      "path": "tools/automation/k37/__init__.py",
+      "source_sha256": "f549c77577f1e4b2c841cfbf59af8912a983744cf7f55364059c15b0e14ab728",
+      "packaged_sha256": "f549c77577f1e4b2c841cfbf59af8912a983744cf7f55364059c15b0e14ab728"
+    },
+    {
+      "path": "tools/automation/k37/_render_k37_summary.py",
+      "source_sha256": "05e76bd30cdf7e07c40ad371988e1c431c0e72838cd90b99a1a40405e535344f",
+      "packaged_sha256": "fc698e677bf6ae67bdd4514a991bcb3314e277e4245b508aefee489dcf32ead0"
+    },
+    {
+      "path": "tools/automation/k37/_render_k37_summary_pil.py",
+      "source_sha256": "8c5742b1c70ef33bca859842f363676178859ddcdb1047bb225e48f0703e4f33",
+      "packaged_sha256": "4dc7f8213a5452bc041f7cb9ae5ae99c6bd7d30a9f7574717f5f31bb17170e45"
+    },
+    {
+      "path": "tools/automation/k37/config.json",
+      "source_sha256": "f856deff0424e8e43557f0322f9cbe466d992f1daf4f00201e137b31ae1ecbe5",
+      "packaged_sha256": "f856deff0424e8e43557f0322f9cbe466d992f1daf4f00201e137b31ae1ecbe5"
+    },
+    {
+      "path": "tools/automation/k37/instrument.py",
+      "source_sha256": "e282ea4a0c287b664562aa1dbc6a32a1deeb65304ce7516e5fb44c274fb1f3d2",
+      "packaged_sha256": "e282ea4a0c287b664562aa1dbc6a32a1deeb65304ce7516e5fb44c274fb1f3d2"
+    },
+    {
+      "path": "tools/automation/k37/launch_main.bat",
+      "source_sha256": "d9aa3e89e4a0cebb46935813349df654db66c342268cc770e86ffc5dbc2b0318",
+      "packaged_sha256": "d9aa3e89e4a0cebb46935813349df654db66c342268cc770e86ffc5dbc2b0318"
+    },
+    {
+      "path": "tools/automation/k37/launch_smoke.bat",
+      "source_sha256": "39171c4ed9aa55adcd084763816abb7f6ef3d1cd84b7331d56201f8026bf05c4",
+      "packaged_sha256": "39171c4ed9aa55adcd084763816abb7f6ef3d1cd84b7331d56201f8026bf05c4"
+    },
+    {
+      "path": "tools/automation/k37/launch_smoke_retest.bat",
+      "source_sha256": "0599b2e663107c6fd43591c4d06ee32c22c5d7e947e01355293820a4ba5d220c",
+      "packaged_sha256": "0599b2e663107c6fd43591c4d06ee32c22c5d7e947e01355293820a4ba5d220c"
+    },
+    {
+      "path": "tools/automation/k37/runner.py",
+      "source_sha256": "dccf3258ad96008d983f924020181ccda7dd1687d376a917b8810eb68454bbd8",
+      "packaged_sha256": "dccf3258ad96008d983f924020181ccda7dd1687d376a917b8810eb68454bbd8"
+    },
+    {
+      "path": "tools/automation/k37_runner.py",
+      "source_sha256": "0e12384b63015f94f97b8e5d7267f989664dcdcb3d7f67325d0f1552cb7f1d34",
+      "packaged_sha256": "0e12384b63015f94f97b8e5d7267f989664dcdcb3d7f67325d0f1552cb7f1d34"
+    },
+    {
+      "path": "tools/automation/launch_ab_compare.bat",
+      "source_sha256": "4312af7a0634bc13681c4deb0a4a1d69acafb5ad3ddc4e86f291304b72356758",
+      "packaged_sha256": "4312af7a0634bc13681c4deb0a4a1d69acafb5ad3ddc4e86f291304b72356758"
+    },
+    {
+      "path": "tools/automation/launch_external_input_fast_statistics_main.bat",
+      "source_sha256": "ade08724ea58fca6de18c83f9dc3610e66df57865fe22ec06d8b6cf35529dd97",
+      "packaged_sha256": "ade08724ea58fca6de18c83f9dc3610e66df57865fe22ec06d8b6cf35529dd97"
+    },
+    {
+      "path": "tools/automation/launch_external_input_fast_statistics_smoke.bat",
+      "source_sha256": "56a5914428873d7b8ec3cd707f598784847712eed551e84b75769e2581334ec0",
+      "packaged_sha256": "56a5914428873d7b8ec3cd707f598784847712eed551e84b75769e2581334ec0"
+    },
+    {
+      "path": "tools/automation/launch_k15_external_input_main.bat",
+      "source_sha256": "e1c53a7d2c41ea05a12bf1233fe185c31de0514c965cb6d2882940b6cd9ea112",
+      "packaged_sha256": "e1c53a7d2c41ea05a12bf1233fe185c31de0514c965cb6d2882940b6cd9ea112"
+    },
+    {
+      "path": "tools/automation/launch_k15_external_input_smoke.bat",
+      "source_sha256": "5b2fb6d3c0a68439e2b86cda6f9b2845bf2dbf004b4a2b5fa836d453ec57145a",
+      "packaged_sha256": "5b2fb6d3c0a68439e2b86cda6f9b2845bf2dbf004b4a2b5fa836d453ec57145a"
+    },
+    {
+      "path": "tools/automation/launch_k15_external_input_sweep.bat",
+      "source_sha256": "fd9830c1f5f65418b1f9c779a0f8f689cf1fe1bc18d25762d7af3a28800829cd",
+      "packaged_sha256": "fd9830c1f5f65418b1f9c779a0f8f689cf1fe1bc18d25762d7af3a28800829cd"
+    },
+    {
+      "path": "tools/automation/launch_k15_input_main.bat",
+      "source_sha256": "1272eadb436ae7f3d03e889022893e8e08642299b08c3b2ea18057720c1d799e",
+      "packaged_sha256": "1272eadb436ae7f3d03e889022893e8e08642299b08c3b2ea18057720c1d799e"
+    },
+    {
+      "path": "tools/automation/launch_k15_input_main_no_flash.bat",
+      "source_sha256": "6f143ab09a7ee4faa860460487e1b78184fa890a6b9f6876ca64588cb43a725a",
+      "packaged_sha256": "6f143ab09a7ee4faa860460487e1b78184fa890a6b9f6876ca64588cb43a725a"
+    },
+    {
+      "path": "tools/automation/launch_k15_input_smoke.bat",
+      "source_sha256": "f89e4bb77ad9c7b6c6209ba5bc88d010dc7acb0685854394dda432251a00f249",
+      "packaged_sha256": "f89e4bb77ad9c7b6c6209ba5bc88d010dc7acb0685854394dda432251a00f249"
+    },
+    {
+      "path": "tools/automation/launch_k15_input_smoke_no_flash.bat",
+      "source_sha256": "28fae4b0180616c60c527bb72b8ecc0ac33a5a89892c98dc89c4b8965f6a3530",
+      "packaged_sha256": "28fae4b0180616c60c527bb72b8ecc0ac33a5a89892c98dc89c4b8965f6a3530"
+    },
+    {
+      "path": "tools/automation/launch_k15_main.bat",
+      "source_sha256": "f851615c6032ed86eb0d7af8bbfe2340ac9a19e20024c9e19f7596200a4df261",
+      "packaged_sha256": "f851615c6032ed86eb0d7af8bbfe2340ac9a19e20024c9e19f7596200a4df261"
+    },
+    {
+      "path": "tools/automation/launch_k15_smoke.bat",
+      "source_sha256": "3e5f1ea02c3fdb58df1e78c39a22d806ef57927be7276fd8c14a7ae99f80155c",
+      "packaged_sha256": "3e5f1ea02c3fdb58df1e78c39a22d806ef57927be7276fd8c14a7ae99f80155c"
+    },
+    {
+      "path": "tools/automation/launch_k37_main.bat",
+      "source_sha256": "330fcb43039d8a9a5d22a23c285c560b940049fdbb0d2f341d6c48ec16f093f5",
+      "packaged_sha256": "330fcb43039d8a9a5d22a23c285c560b940049fdbb0d2f341d6c48ec16f093f5"
+    },
+    {
+      "path": "tools/automation/launch_k37_smoke.bat",
+      "source_sha256": "63ece6e8d191164edbdf0d7ef878d9f8277214eb46d2c5ff7aeec55a99ac8b67",
+      "packaged_sha256": "63ece6e8d191164edbdf0d7ef878d9f8277214eb46d2c5ff7aeec55a99ac8b67"
+    },
+    {
+      "path": "tools/automation/launch_k37_smoke_retest.bat",
+      "source_sha256": "3677b504ccc83352298ab635738bc86daa7a13613eb13596998cc30c8ff4c7b4",
+      "packaged_sha256": "3677b504ccc83352298ab635738bc86daa7a13613eb13596998cc30c8ff4c7b4"
+    },
+    {
+      "path": "tools/automation/launch_ui.bat",
+      "source_sha256": "4312af7a0634bc13681c4deb0a4a1d69acafb5ad3ddc4e86f291304b72356758",
+      "packaged_sha256": "4312af7a0634bc13681c4deb0a4a1d69acafb5ad3ddc4e86f291304b72356758"
+    },
+    {
+      "path": "tools/automation/requirements.txt",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "packaged_sha256": "9b7c0fc2e2790f3b76b4a86bad86ab3706fa80d969856d97e1978e43f877a4c7"
+    },
+    {
+      "path": "tools/automation/runner.py",
+      "source_sha256": "aa948cd3833333cf148222c238171d8c3b8fc844ec6a58bb4f0e1ad8ad532bef",
+      "packaged_sha256": "aa948cd3833333cf148222c238171d8c3b8fc844ec6a58bb4f0e1ad8ad532bef"
+    },
+    {
+      "path": "tools/automation/ui.py",
+      "source_sha256": "504fc3b27d3a867bd72e799aeb132f7242312cb61dde3fb29c35892db2ce287f",
+      "packaged_sha256": "504fc3b27d3a867bd72e799aeb132f7242312cb61dde3fb29c35892db2ce287f"
+    },
+    {
+      "path": "tools/measurement/rtm3004_capture.py",
+      "source_sha256": "8b2dcc97cb573be7046def3dac03a7b0b6d57e9a668d9cca3c6ed0054633ed74",
+      "packaged_sha256": "8b2dcc97cb573be7046def3dac03a7b0b6d57e9a668d9cca3c6ed0054633ed74"
+    },
+    {
+      "path": "tools/measurement/rtm3004_readback.py",
+      "source_sha256": "da65e81bda3f6b83342b0e152476d5c6d733a5e9a9fb9bf68f77e37a88a7d6f4",
+      "packaged_sha256": "da65e81bda3f6b83342b0e152476d5c6d733a5e9a9fb9bf68f77e37a88a7d6f4"
+    },
+    {
+      "path": "tools/measurement/rtm3004_scpi.py",
+      "source_sha256": "9e9d964674c3930de4f747211de47bc07a56f5cf16bfa15f595061b91d6e92f1",
+      "packaged_sha256": "9e9d964674c3930de4f747211de47bc07a56f5cf16bfa15f595061b91d6e92f1"
+    }
+  ],
+  "collection_date": "2026-11-10",
+  "adapted_files": [
+    "Core/Src/main.c",
+    "tools/analysis/analyze_ab_c1c2.py",
+    "tools/analysis/render_ab_c1c2_clean.py",
+    "tools/analysis/requirements.txt",
+    "tools/automation/common/statistics_runner.py",
+    "tools/automation/k15/INPUT_OUTPUT_MEASUREMENT_GUIDE.md",
+    "tools/automation/k15/external_input_k15.py",
+    "tools/automation/k15/recover_external_input_k15_history.py",
+    "tools/automation/k15/runner.py",
+    "tools/automation/k37/_render_k37_summary.py",
+    "tools/automation/k37/_render_k37_summary_pil.py",
+    "tools/automation/requirements.txt"
+  ],
+  "hash_normalization": "CRLF normalized to LF before hashing text files"
+}

@@ -1,0 +1,30 @@
+# STM32CubeIDE build products
+Debug/
+Release/
+*.elf
+*.hex
+*.bin
+*.map
+*.list
+*.o
+*.d
+*.su
+*.cyclo
+
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Measurement output and instrument captures
+output/
+tools/measurement/captures/
+출력/
+
+# Local logs and editor/OS files
+.metadata/
+.pytest_cache/
+*.log
+.DS_Store
+Thumbs.db
