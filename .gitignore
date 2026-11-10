@@ -23,6 +23,8 @@ tools/measurement/captures/
 출력/
 
 # Local logs and editor/OS files
+.metadata/
+.pytest_cache/
 *.log
 .DS_Store
 Thumbs.db

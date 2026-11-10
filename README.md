@@ -1,70 +1,86 @@
-# STM32 HRTIM Autonomous Delay Sweep
+# STM32 PCB Delay Generator
 
-STM32G474 펌웨어와 RTM3004 PC 자동화 프로그램을 함께 사용하여 정밀 지연 시간을 자동으로 변경하고, 측정 결과를 저장하는 프로젝트입니다.
+STM32G474CEU6 PCB 펌웨어와 RTM3004의 K15·K37·A/B 측정·분석 코드를 함께 관리한다.
 
-## 실행 방법
+→ 개발보드 검증은 [stm32g474-hrtim-delay](https://github.com/basstwd17-cmyk/stm32g474-hrtim-delay), PCB와 측정 도구는 이 저장소에서 확인한다.
 
-`tools\automation\launch_ui.bat`를 실행하거나 저장소 루트에서 다음 명령을 실행합니다.
+## 코드 구성
+
+| 경로 | 역할 |
+| --- | --- |
+| `Core/`, `USB_Device/` | PCB 펌웨어, 외부 이벤트, Timer C·D, 자율 sweep |
+| `Drivers/`, `Middlewares/` | ST HAL·CMSIS·USB 드라이버 |
+| `tools/automation/ab_compare/` | C1−C2 반복 통계와 A/B 케이블·채널 교환 보정 |
+| `tools/automation/k15/` | K15 History의 개별 파형·상승 에지·지터 수집 |
+| `tools/automation/k37/` | Spectrum·Spectrogram·Peak List 수집과 요약 그림 |
+| `tools/automation/common/` | 계측기 제어, sweep 계획, 빌드·DFU 공통 기능 |
+| `tools/analysis/` | 입력 기준 지터, 상대 지연, 반복 sweep, A/B 분석 |
+| `tools/measurement/` | RTM3004 설정 조회·파형·화면 수집 보조 도구 |
+
+## 시작하기
+
+Windows, Python 3.10 이상, STM32CubeIDE와 STM32CubeProgrammer를 사용한다. K15·K37 측정에는 해당 RTM3004 장비 옵션이 필요하다.
 
 ```powershell
-py -3 tools\automation\ui.py
+py -3 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
-RTM3004와 PCB를 다음과 같이 연결합니다.
+STM32CubeIDE에서 **Existing Projects into Workspace**로 이 폴더를 가져와 `Debug`를 한 번 빌드한다. 프로젝트 이름은 `delay_generator_g474ceu6`이다.
 
-| 계측기 신호 | PCB 신호 | 커넥터 | MCU 핀 |
-| --- | --- | --- | --- |
-| 신호 발생기 출력 | IN1 | J6 | PB9 / EEV5 |
-| C1 | OUT3 | J4 | PB14 / TD1 |
-| C2 | OUT4 | J5 | PB15 / TD2 |
+→ `Debug/makefile`이 생성된 뒤 자동화의 Build 기능을 사용할 수 있다. 최초 import에서 `.ioc` 재생성은 필요 없다.
 
-측정 지연 시간의 부호는 `OUT4(C2) - OUT3(C1)`입니다. 양수이면 OUT4가 지연되고, 음수이면 OUT3가 지연됩니다.
-
-## 펌웨어 측정 계획
-
-`tools/automation/config.json`은 지연 시간 목록과 반복 횟수, 단계별 파형 개수를 관리하는 기준 설정 파일입니다. 빌드 전에 자동화 프로그램이 다음 파일을 생성합니다.
-
-```text
-Core/Inc/autonomous_sweep.h
+```powershell
+$env:STM32CUBEIDE_ROOT = 'C:\ST\STM32CubeIDE\STM32CubeIDE'
+$env:STM32_PROGRAMMER_CLI = 'C:\Program Files\STMicroelectronics\STM32Cube\STM32CubeProgrammer\bin\STM32_Programmer_CLI.exe'
 ```
 
-STM32는 재설정 후 0번 단계부터 시작합니다. EXTI9는 PB9의 상승 에지마다 시간을 기록하며, PB9은 HRTIM EEV5에도 계속 연결되어 있습니다. 한 버스트가 진행되는 동안 지연 시간은 바뀌지 않습니다. PB9 입력이 300ms 동안 들어오지 않으면 메인 루프가 다음 지연 시간을 적용합니다. 이 시간은 10Hz 버스트 내부의 100ms 간격보다 길고, 측정 지점 사이에 확보한 대기 시간보다 짧습니다. 마지막 버스트가 끝나면 Timer D 출력을 정지합니다.
+분석 명령은 저장소의 `.venv` Python을 사용한다. 확인한 패키지 버전은 [requirements-tested.txt](requirements-tested.txt)에 기록했다.
 
-측정 계획을 변경했을 때는 UI에서 `Build once`와 `DFU flash once`를 모두 선택해야 합니다. 안내가 표시되면 보드를 DFU 모드로 전환합니다. 실제 하드웨어 측정을 시작할 때마다 UI는 신호 발생기 출력을 끈 상태로 RTM3004를 먼저 설정합니다. 이후 버스트 모드를 활성화하고 `SINGle` 모드를 다시 적용한 다음, 버스트 상태와 트리거 모드, 사이클 수, 출력 상태, SCPI 오류 대기열을 확인합니다. 신호 발생기 출력이 꺼져 있는 동안 RESET을 한 번 누릅니다. 첫 번째 스코프 획득은 지연 시간 0에서 준비된 뒤 신호 발생기 출력을 켜므로, 재설정 후 첫 입력은 첫 번째 측정 지점에 해당합니다.
+위 경로는 본인 PC에 맞춘다. `STM32CUBEIDE_ROOT`는 `plugins` 폴더가 있는 위치다. 측정 전 선택한 모드의 `config.json`과 장비 IP를 확인한다.
 
-일반 애플리케이션 모드에서는 USB CDC를 시작하지 않습니다. STM32 ROM 부트로더를 이용한 DFU 프로그래밍은 계속 사용할 수 있습니다.
+| 목적 | 시작 위치 |
+| --- | --- |
+| A/B 상대 지연 측정 | `tools/automation/launch_ab_compare.bat` |
+| K15 C1/C2 사전 검증·본 측정 | `launch_k15_smoke.bat` → `launch_k15_main.bat` |
+| K37 사전 검증·본 측정 | `launch_k37_smoke.bat` → `launch_k37_main.bat` |
+| 외부 입력 C3를 포함한 K15 | [입력 기준 측정 절차](tools/automation/k15/INPUT_OUTPUT_MEASUREMENT_GUIDE.md) |
+| 저장 결과 분석 | [실행·분석 명령](docs/RUNNING.md) |
 
-## 동기화 방식
+실행 파일은 `tools/automation/`에 있다. 모드를 바꾸면 펌웨어 계획도 달라지므로 다시 빌드·DFU·RESET한다.
 
-각 측정 지점에서는 획득을 멈춘 상태로 스코프 통계를 초기화합니다. 자동화 프로그램은 `ACQ:NSIN:COUN`에 설정된 파형 개수를 입력하고 스코프를 `SINGle` 모드로 준비합니다. 모든 파형이 처리되어 지연 시간 통계에 포함되도록 고속 세그먼테이션 기능은 사용하지 않습니다.
+## PCB 신호
 
-신호 발생기 상태와 통계 샘플 수가 0인지 확인한 뒤, 첫 번째 측정 지점에서 신호 발생기 출력을 켭니다. 출력 활성화와 동시에 자동 버스트가 시작되면 추가 트리거 없이 해당 버스트를 그대로 측정합니다. 1초 동안 파형이 들어오지 않을 때만 소프트웨어 버스트 트리거를 한 번 전송합니다. 이후 측정 지점에서는 소프트웨어 버스트 트리거를 정확히 한 번씩 전송합니다. 설정된 수의 실제 트리거 획득이 끝나야 스코프가 `COMPlete` 상태를 반환합니다. 측정 지점 사이에는 신호 발생기 출력과 버스트 모드를 활성화된 대기 상태로 유지하고, 전체 실행이 끝나거나 오류 또는 중단이 발생했을 때만 비활성화합니다.
+| PCB | MCU·HRTIM | 측정 연결 |
+| --- | --- | --- |
+| IN1 / J6 | PB9 / EEV5 → Timer D | 발생기 입력, 입력 기준 측정 시 C3 |
+| OUT3 / J4 | PB14 / TD1 | C1 |
+| OUT4 / J5 | PB15 / TD2 | C2 |
+| IN2 / J3 | PB7 / EEV3 → Timer C | 두 번째 외부 입력 |
+| OUT1 / OUT2 | PB13 / TC2, PB12 / TC1 | 나머지 출력 쌍 |
 
-버스트 위상은 180도로 설정되어 상승 에지 트리거 사이의 대기 구간에서 출력이 낮은 상태를 유지합니다. 한 측정이 끝나면 PC는 최소 500ms 동안 기다립니다. 이 시간 동안 펌웨어가 300ms 입력 유휴 구간을 감지하고 다음 지연 시간을 적용합니다. PC와 펌웨어는 동일한 SHA-256 서명으로 측정 계획을 검증하며, 서명이 다르면 측정을 시작하기 전에 실행을 중단합니다.
+측정 부호는 `OUT4(C2) − OUT3(C1)`. 양수이면 OUT4가 늦다.
 
-각 버스트를 시작하기 전에 자동화 프로그램은 설정된 Nx Single 횟수를 확인하고, 준비된 통계 카운터가 여전히 0인지 검사합니다. 신호 발생기 트리거 없이 카운터가 증가하면 버스트를 전송하지 않습니다. 측정 완료 여부는 스코프의 `COMPlete` 응답으로 판단합니다. `WFMCount`와 통계 샘플 수는 측정 후 결과 검증에만 사용합니다.
+## 펌웨어와 측정 계획
 
-일반 트리거 모드에서 이 RTM3004는 Nx Single 획득을 준비하고 트리거를 기다리는 중에도 `ACQ:STAT?`에 `STOP`을 반환할 수 있습니다. 따라서 자동화 프로그램은 획득 상태와 `STAT:OPER:COND?`의 WTRigger 비트를 함께 확인합니다. `RUN` 또는 WTRigger는 준비 완료, `COMPlete`는 측정 완료, `BREak`는 측정 중단을 의미합니다.
+- HSE 8 MHz → PLL 170 MHz, HRTIM MUL32 → 약 **183.8 ps/tick**.
+- OUT3·OUT4 펄스 폭: 109 tick, 약 **20.04 ns**.
+- 원본 입력 모드: **EEV3 Rising/동기식**, **EEV5 Level/Fast**.
+- 기본 헤더: `k15/config_input_reference.json`, 4조건·조건당 1,300 입력 + 30 guard 입력.
+- 기존 A/B·K15 C1/C2·K37 버스트 계획: **300 ms 입력 유휴 구간**에서 단계 전환.
+- 연속 입력 계획: 헤더에 `AUTONOMOUS_SWEEP_TRANSITION_GUARD_PULSES`가 있을 때 **입력 개수**로 전환.
 
-측정 지점별 제한 시간은 `waveforms_per_step / generator.frequency_hz`를 기준으로 계산하며 최소 10초입니다. 제한 시간 초과 또는 스코프 조기 정지 전에 파형이 하나 이상 측정되었다면 스코프 획득만 정지합니다. 이미 트리거된 신호 발생기 버스트가 완전히 끝날 때까지 기다린 뒤 다음 측정 지점으로 넘어갑니다. 확보된 샘플은 저장하고 해당 지점을 `warning`으로 표시한 다음 전체 측정을 계속합니다. 파형이 하나도 없는 상태에서 제한 시간이 초과되면 트리거 경로를 검증할 수 없으므로 치명적인 측정 오류로 처리합니다.
+→ `prepare_plan.py`로 선택한 설정의 헤더를 장비 없이 생성한다. [실행 절차](docs/RUNNING.md)를 따른다.
 
-자동화 프로그램은 시간순 지연 샘플에서 지속적인 변화 지점을 검색합니다. 서로 다른 두 개의 지연 구간이 한 측정 지점에 섞여 있으면 일반 원시 샘플 CSV와 `*_mixed_delay_samples.csv`에 모두 저장합니다. `summary.csv`에는 `quality_status=warning`으로 기록하고 다음 지연 시간을 측정합니다. 파형 수 또는 샘플 수가 맞지 않는 경우에도 같은 경고 후 계속 진행하는 방식을 사용합니다.
+## 결과와 버전 해석
 
-기본 신호 발생기 주파수는 10Hz입니다. 출력 쌍 사이에 100ms 간격을 두어 RTM3004 측정 통계가 모든 결과를 기록할 수 있게 합니다. 주파수를 10Hz보다 낮추는 경우, 하나의 버스트가 여러 단계로 나뉘지 않도록 `PULSE_BURST_IDLE_GAP_MS`를 신호 발생기 주기보다 길게 유지해야 합니다.
+설정 분해능, 설정 오차, 입력 기준 변동, 출력 간 상대 지터를 구분한다.
 
-일시 정지와 안전 정지는 현재 측정 지점이 끝난 뒤 적용됩니다. 강제 중단은 신호 발생기 출력을 즉시 끕니다. 정지, 강제 중단 또는 정상 완료 후 새 측정을 시작할 때마다 RESET을 눌러야 합니다.
+→ 과거 측정값을 재현하려면 원시 데이터와 당시 펌웨어·이벤트 모드·배선을 함께 확인한다. 현재 Fast 설정만으로 입력 기준 지터가 제거되었다고 해석하지 않는다.
 
-## 저장 결과
+- [결과와 코드 대응](docs/RESULTS.md)
+- [원본과 배포 변경점](docs/PROVENANCE.md)
+- [빌드·실행 점검 결과](docs/VALIDATION.md)
+- [프로젝트 정리 페이지](https://chatgpt.com/space/page_b490046acce88191bf61d6f8bf3e7bdb)
 
-실행할 때마다 시간 정보가 포함된 새 디렉터리가 생성되며 다음 파일을 저장합니다.
-
-- `manifest.json`: 전체 설정과 순서가 확정된 측정 계획
-- `summary.csv`: 요청값, 양자화된 값, 측정값, 품질 상태
-- 측정 지점별 폴더: 측정 계획 JSON, 지연 샘플, 파형 CSV, 화면 PNG
-- `*_partial_delay_samples.csv`: 중단된 측정 지점에서 복구한 샘플
-- `*_mixed_delay_samples.csv`: 서로 다른 지연 구간이 섞인 것으로 판정된 원시 샘플 사본
-- `run_status.json`: 완료, 정지, 강제 중단 또는 실패 상태
-
-각 PNG는 `HCOP:DATA?`를 사용하여 현재 RTM3004 화면에서 직접 전송받습니다. 계측기 내부 저장소에 남아 있는 기존 이미지 파일은 재사용하지 않습니다.
-
-자동화 프로그램은 측정 결과를 일관되게 비교할 수 있도록 채널 스케일, 시간축, 트리거 레벨, 지연 기준, 레코드 길이, 신호 발생기 설정을 고정하여 사용합니다.
+빌드 결과·장비 상태·원시 파형은 `Debug/`, `output/` 등에 보관하며 Git에서 제외한다.

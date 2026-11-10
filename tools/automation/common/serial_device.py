@@ -1,4 +1,4 @@
-"""USB CDC command client for the STM32 delay generator."""
+"""USB CDC helpers shared by automation modes."""
 
 from __future__ import annotations
 

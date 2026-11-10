@@ -55,7 +55,10 @@ typedef enum
 #define HRTIM_MIN_PULSE_TICKS         96U
 #define HRTIM_MAX_TICKS               0xFFDFU
 #define PULSE_PERIOD_GUARD_TICKS      96U
-#define PULSE_TEST_BASE_DELAY_TICKS   128U
+/* The input-to-output jitter run uses the shortest compare value accepted by
+ * this firmware.  Keep the Fast EEV5 path enabled, but do not add an
+ * unverified 11-clock guard to the programmed delay. */
+#define PULSE_TEST_BASE_DELAY_TICKS   HRTIM_MIN_COMPARE_TICKS
 #define PULSE_IN1_PIN                 GPIO_PIN_9
 #define PULSE_IN2_PIN                 GPIO_PIN_7
 #define PULSE_OUT1_PIN                GPIO_PIN_13
@@ -66,12 +69,19 @@ typedef enum
                                        PULSE_OUT3_PIN | PULSE_OUT4_PIN)
 #define PULSE_TEST_WIDTH_TICKS        109U
 #define PULSE_INPUT_PATH_DIAGNOSTIC   0U
+
+/* Continuous-input plans explicitly provide a guard count. Older burst
+ * plans omit it and advance after the input has been idle for 300 ms. */
 #define PULSE_BURST_IDLE_GAP_MS       300U
 
 _Static_assert(AUTONOMOUS_SWEEP_STEP_COUNT > 0U,
                "Autonomous sweep must contain at least one step");
 _Static_assert(AUTONOMOUS_SWEEP_PULSES_PER_STEP > 0U,
                "Autonomous sweep pulse count must be positive");
+#ifdef AUTONOMOUS_SWEEP_TRANSITION_GUARD_PULSES
+_Static_assert(AUTONOMOUS_SWEEP_TRANSITION_GUARD_PULSES > 0U,
+               "Autonomous sweep transition guard must be positive");
+#endif
 
 /* USER CODE END PD */
 
@@ -99,8 +109,11 @@ static PulseTimerTimingTicks timer_d_timing_ticks;
 static volatile PulseAutonomousState pulse_autonomous_state =
     PULSE_AUTONOMOUS_IDLE;
 static volatile uint32_t pulse_autonomous_step_index = 0U;
+static volatile uint32_t pulse_autonomous_input_count = 0U;
+#ifndef AUTONOMOUS_SWEEP_TRANSITION_GUARD_PULSES
 static volatile uint32_t pulse_autonomous_last_input_tick = 0U;
 static volatile uint8_t pulse_autonomous_burst_active = 0U;
+#endif
 
 /* USER CODE END PV */
 
@@ -419,8 +432,11 @@ static HAL_StatusTypeDef PulseGenerator_ApplyTiming(void)
 static void PulseAutonomous_Reset(void)
 {
   pulse_autonomous_step_index = 0U;
+  pulse_autonomous_input_count = 0U;
+#ifndef AUTONOMOUS_SWEEP_TRANSITION_GUARD_PULSES
   pulse_autonomous_last_input_tick = 0U;
   pulse_autonomous_burst_active = 0U;
+#endif
   pulse_autonomous_state = PULSE_AUTONOMOUS_RUNNING;
 }
 
@@ -442,6 +458,7 @@ static void PulseAutonomous_Process(void)
 {
   uint32_t next_step;
 
+#ifndef AUTONOMOUS_SWEEP_TRANSITION_GUARD_PULSES
   if ((pulse_autonomous_state == PULSE_AUTONOMOUS_RUNNING) &&
       (pulse_autonomous_burst_active != 0U))
   {
@@ -453,6 +470,7 @@ static void PulseAutonomous_Process(void)
     pulse_autonomous_burst_active = 0U;
     pulse_autonomous_state = PULSE_AUTONOMOUS_TRANSITION;
   }
+#endif
 
   if (pulse_autonomous_state != PULSE_AUTONOMOUS_TRANSITION)
   {
@@ -478,8 +496,7 @@ static void PulseAutonomous_Process(void)
   }
 
   pulse_autonomous_step_index = next_step;
-  pulse_autonomous_last_input_tick = 0U;
-  pulse_autonomous_burst_active = 0U;
+  pulse_autonomous_input_count = 0U;
   pulse_autonomous_state = PULSE_AUTONOMOUS_RUNNING;
 }
 
@@ -496,8 +513,23 @@ void EXTI9_5_IRQHandler(void)
     return;
   }
 
+  /* The timer output for this edge is already scheduled by HRTIM.  Defer
+   * compare-register updates to the main loop so this last captured edge
+   * remains part of the current step.  The following guard edges give the
+   * scope automation time to finish/export statistics before the transition.
+   */
+#ifdef AUTONOMOUS_SWEEP_TRANSITION_GUARD_PULSES
+  pulse_autonomous_input_count++;
+  if (pulse_autonomous_input_count >=
+      (AUTONOMOUS_SWEEP_PULSES_PER_STEP +
+       AUTONOMOUS_SWEEP_TRANSITION_GUARD_PULSES))
+  {
+    pulse_autonomous_state = PULSE_AUTONOMOUS_TRANSITION;
+  }
+#else
   pulse_autonomous_last_input_tick = HAL_GetTick();
   pulse_autonomous_burst_active = 1U;
+#endif
 }
 
 /* USER CODE END 0 */
@@ -691,6 +723,12 @@ static void MX_HRTIM1_Init(void)
     Error_Handler();
   }
   pEventCfg.Source = HRTIM_EEV5SRC_GPIO;
+  /* EEV5 is the timing-critical IN1 path. Enable HRTIM low-latency handling
+   * while retaining CMP1/CMP3 rising-edge timing control for Timer D.
+   * FastMode requires LEVEL sensitivity; the high-polarity reset then starts
+   * on the input rising edge. */
+  pEventCfg.Sensitivity = HRTIM_EVENTSENSITIVITY_LEVEL;
+  pEventCfg.FastMode = HRTIM_EVENTFASTMODE_ENABLE;
   if (HAL_HRTIM_EventConfig(&hhrtim1, HRTIM_EVENT_5, &pEventCfg) != HAL_OK)
   {
     Error_Handler();

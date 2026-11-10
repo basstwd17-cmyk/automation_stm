@@ -1,0 +1,75 @@
+{
+  "measurement_mode": "k37_spectrum",
+  "scope": {
+    "host": "192.168.50.2",
+    "port": 5025,
+    "timeout_s": 30.0
+  },
+  "autonomous": {
+    "reset_settle_s": 0.5,
+    "transition_settle_s": 0.5
+  },
+  "hardware_mapping": {
+    "input": "IN1/J6/PB9/EEV5/TimerD",
+    "scope_c1": "OUT3/J4/PB14/TD1",
+    "scope_c2": "OUT4/J5/PB15/TD2",
+    "delay_sign": "positive = OUT4(C2) - OUT3(C1)"
+  },
+  "generator": {
+    "frequency_hz": 10.0,
+    "amplitude_vpp": 3.3,
+    "offset_v": 1.65,
+    "duty_percent": 50.0
+  },
+  "acquisition": {
+    "waveforms_per_step": 100,
+    "arm_settle_s": 0.5,
+    "time_scale_s_per_div": 2e-9,
+    "time_position_s": 0.0,
+    "channel_scale_v_per_div": 0.5,
+    "channel_position_div": -1.0,
+    "trigger_level_v": 1.65,
+    "record_length": 5000,
+    "waveform_points": "DMAX"
+  },
+  "spectrum": {
+    "smoke_acquisitions": 3,
+    "window": "HANNING",
+    "magnitude_scale": "DBV",
+    "full_span": true,
+    "rbw_auto": true,
+    "traces": [
+      "average",
+      "maximum",
+      "minimum",
+      "spectrum"
+    ],
+    "save_time_waveforms": false,
+    "spectrogram": {
+      "enabled": true,
+      "lines_per_acquisition": 1
+    },
+    "peaks": {
+      "enabled": true,
+      "minimum_level": -80.0,
+      "maximum_results": 20
+    }
+  },
+  "sweep": {
+    "repeats": 1,
+    "alternate_order": false,
+    "steps": [
+      {"id": "Z00_C1", "delay_ps": 0, "source": "CH1"},
+      {"id": "Z00_C2", "delay_ps": 0, "source": "CH2"},
+      {"id": "P11_C1", "delay_ps": 2022, "source": "CH1"},
+      {"id": "P11_C2", "delay_ps": 2022, "source": "CH2"},
+      {"id": "N22_C1", "delay_ps": -4044, "source": "CH1"},
+      {"id": "N22_C2", "delay_ps": -4044, "source": "CH2"},
+      {"id": "P22_C1", "delay_ps": 4044, "source": "CH1"},
+      {"id": "P22_C2", "delay_ps": 4044, "source": "CH2"}
+    ]
+  },
+  "paths": {
+    "output_root": "output/k37_spectrum"
+  }
+}

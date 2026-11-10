@@ -1,0 +1,55 @@
+{
+  "measurement_mode": "segmented_history",
+  "scope": {
+    "host": "192.168.50.2",
+    "port": 5025,
+    "timeout_s": 5.0
+  },
+  "autonomous": {
+    "reset_settle_s": 0.5,
+    "transition_settle_s": 0.5
+  },
+  "hardware_mapping": {
+    "input": "IN1/J6/PB9/EEV5/TimerD",
+    "scope_c1": "OUT3/J4/PB14/TD1",
+    "scope_c2": "OUT4/J5/PB15/TD2",
+    "delay_sign": "positive = OUT4(C2) - OUT3(C1)"
+  },
+  "generator": {
+    "frequency_hz": 10.0,
+    "amplitude_vpp": 3.3,
+    "offset_v": 1.65,
+    "duty_percent": 50.0
+  },
+  "acquisition": {
+    "waveforms_per_step": 1002,
+    "arm_settle_s": 0.5,
+    "time_scale_s_per_div": 2e-9,
+    "time_position_s": 0.0,
+    "channel_scale_v_per_div": 0.5,
+    "channel_position_div": -1.0,
+    "trigger_level_v": 1.65,
+    "record_length": 5000,
+    "waveform_points": "MAX"
+  },
+  "k15": {
+    "smoke_segments": 3,
+    "startup_segments": 2,
+    "fixed_threshold_v": 1.65,
+    "save_all_waveforms": true,
+    "timestamp_tolerance_s": 1e-12
+  },
+  "sweep": {
+    "repeats": 1,
+    "alternate_order": false,
+    "steps": [
+      {"id": "Z00", "delay_ps": 0},
+      {"id": "P11", "delay_ps": 2022},
+      {"id": "N22", "delay_ps": -4044},
+      {"id": "P22", "delay_ps": 4044}
+    ]
+  },
+  "paths": {
+    "output_root": "output/k15_segmented"
+  }
+}

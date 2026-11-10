@@ -1,4 +1,4 @@
-"""Measurement-plan construction and validation."""
+"""Measurement-plan construction and validation shared by all modes."""
 
 from __future__ import annotations
 
@@ -101,26 +101,35 @@ def validate_config(config: dict[str, Any], steps: list[SweepStep]) -> None:
             raise ValueError(f"{step.prefix}: delay exceeds the HRTIM counter range")
 
 
-def firmware_plan_signature(steps: list[SweepStep], pulses_per_step: int) -> str:
+def firmware_plan_signature(
+    steps: list[SweepStep],
+    pulses_per_step: int,
+    transition_guard_pulses: int | None = None,
+) -> str:
     payload = {
         "format": 1,
         "pulses_per_step": int(pulses_per_step),
         "delays_ps": [step.delay_ps for step in steps],
     }
+    if transition_guard_pulses is not None:
+        payload["transition_guard_pulses"] = int(transition_guard_pulses)
     encoded = json.dumps(payload, sort_keys=True, separators=(",", ":")).encode("ascii")
     return hashlib.sha256(encoded).hexdigest()
 
 
-def render_firmware_header(steps: list[SweepStep], pulses_per_step: int) -> str:
-    signature = firmware_plan_signature(steps, pulses_per_step)
+def render_firmware_header(
+    steps: list[SweepStep],
+    pulses_per_step: int,
+    transition_guard_pulses: int | None = None,
+) -> str:
+    signature = firmware_plan_signature(steps, pulses_per_step, transition_guard_pulses)
     values = []
     for index, step in enumerate(steps):
         comma = "," if index + 1 < len(steps) else ""
         values.append(f"  {step.delay_ps}L{comma}  /* step {index} */")
 
-    return "\n".join(
-        [
-            "/* Generated from tools/automation/config.json. */",
+    header = [
+            "/* Generated from a tools/automation measurement config. */",
             "#ifndef AUTONOMOUS_SWEEP_H",
             "#define AUTONOMOUS_SWEEP_H",
             "",
@@ -128,6 +137,13 @@ def render_firmware_header(steps: list[SweepStep], pulses_per_step: int) -> str:
             "",
             f'#define AUTONOMOUS_SWEEP_PLAN_SIGNATURE "{signature}"',
             f"#define AUTONOMOUS_SWEEP_PULSES_PER_STEP {pulses_per_step}U",
+        ]
+    if transition_guard_pulses is not None:
+        header.append(
+            f"#define AUTONOMOUS_SWEEP_TRANSITION_GUARD_PULSES {transition_guard_pulses}U"
+        )
+    header.extend(
+        [
             f"#define AUTONOMOUS_SWEEP_STEP_COUNT {len(steps)}U",
             "",
             "static const int32_t autonomous_sweep_delay_ps[",
@@ -140,18 +156,21 @@ def render_firmware_header(steps: list[SweepStep], pulses_per_step: int) -> str:
             "",
         ]
     )
+    return "\n".join(header)
 
 
 def firmware_header_matches(
     path: Path,
     steps: list[SweepStep],
     pulses_per_step: int,
+    transition_guard_pulses: int | None = None,
 ) -> bool:
     if not path.exists():
         return False
     return path.read_text(encoding="ascii") == render_firmware_header(
         steps,
         pulses_per_step,
+        transition_guard_pulses,
     )
 
 
@@ -159,8 +178,9 @@ def write_firmware_header(
     path: Path,
     steps: list[SweepStep],
     pulses_per_step: int,
+    transition_guard_pulses: int | None = None,
 ) -> bool:
-    content = render_firmware_header(steps, pulses_per_step)
+    content = render_firmware_header(steps, pulses_per_step, transition_guard_pulses)
     if path.exists() and path.read_text(encoding="ascii") == content:
         return False
     path.write_text(content, encoding="ascii")
